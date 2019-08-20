@@ -1,0 +1,29 @@
+  <div class="panel panel-default">
+      <div class="panel-heading"></div>
+      <div class="panel-body">
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :addr, class: "control-label" %>
+    <%= text_input f, :addr, class: "form-control" %>
+    <%= error_tag f, :addr %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :remark, class: "control-label" %>
+    <%= textarea f, :remark, class: "form-control" %>
+    <%= error_tag f, :remark %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+    <span><%= link "Cancel", to: address_path(@conn, :index), class: "btn btn-warning" %></span>
+  </div>
+<% end %>
+</div>
+</div>

@@ -33,7 +33,7 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
     <!-- END Custom CSS-->
   </head>
-  <body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar" data-open="click" data-menu="vertical-menu" data-color="bg-blue" data-col="2-columns">
+  <body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar" data-open="click" data-menu="vertical-menu" data-color="bg-red" data-col="2-columns">
 
     <nav class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-semi-light"> 
       <div class="navbar-wrapper">
@@ -130,15 +130,21 @@
     <div class="main-menu menu-fixed menu-light menu-accordion    menu-shadow " data-scroll-to-active="true" data-img="/app-assets/images/backgrounds/02.jpg">
       <div class="navbar-header">
         <ul class="nav navbar-nav flex-row">       
-          <li class="nav-item mr-auto"><a class="navbar-brand" href="/admin"><img class="brand-logo" alt="Chameleon admin logo" src="/img/idk_pay-logo-color-small.png"/>
-              <h3 class="brand-text">IdkPay</h3></a></li>
+          <li class="nav-item mr-auto"><a class="navbar-brand" href="/admin"><img class="brand-logo" alt="IDK PAY" src="/img/idkicon.png"/>
+              <h3 class="brand-text">IDK Pay</h3></a></li>
           <li class="nav-item d-md-none"><a class="nav-link close-navbar"><i class="ft-x"></i></a></li>
         </ul>
       </div>
       <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
           <li class="active nav-item"><a href="/admin" up-target=".main" up-transition="move-right"><i class="ft-home"></i><span class="menu-title" data-i18n="">Dashboard</span></a>
-          </li>          
+          </li>  
+          <li class="nav-item"><a href="/admin/invoice" up-target=".main" up-transition="move-right"><i class="ft-home"></i><span class="menu-title" data-i18n="">Invoice</span></a>
+          </li> 
+          <li class="nav-item"><a href="/admin/addresses" up-target=".main" up-transition="move-right"><i class="ft-home"></i><span class="menu-title" data-i18n="">Address</span></a>
+          </li> 
+          <li class="nav-item"><a href="/admin/transactions" up-target=".main" up-transition="move-right"><i class="ft-home"></i><span class="menu-title" data-i18n="">Transaction</span></a>
+          </li>                                        
           <li class=" nav-item"><a href="#"><i class="ft-layers"></i><span class="menu-title" data-i18n="">Portal management</span></a>
             <ul class="menu-content">
               <li><a class="menu-item" href="/admin/activity" up-target=".main" up-transition="move-right">Activity Monitor</a>

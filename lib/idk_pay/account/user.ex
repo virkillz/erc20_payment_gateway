@@ -19,6 +19,20 @@ defmodule IdkPay.Account.User do
     field :username, :string
     field :is_verified, :boolean, default: false
     field :verification_code, :string
+    field :recovery_code, :string
+    field :merchant_name, :string 
+    field :mainnet_eth_address, :string 
+    field :testnet_eth_address, :string 
+    field :mainnet_key, :string 
+    field :mainnet_secret, :string 
+    field :testnet_key, :string
+    field :testnet_secret, :string 
+    field :mainnet_webhook, :string 
+    field :testnet_webhook, :string 
+    field :mainnet_default_success_url, :string 
+    field :testnet_default_success_url, :string 
+    field :mainnet_default_error_url, :string 
+    field :testnet_default_error_url, :string        
 
     timestamps()
   end

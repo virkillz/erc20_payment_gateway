@@ -33,6 +33,8 @@ defmodule IdkPayWeb.Router do
     resources "/activity", ActivityController, only: [:index, :show, :delete]
     resources "/user", UserController
     resources "/invoices", InvoiceController
+    resources "/addresses", AddressController
+    resources "/transactions", TransactionController
     get "/logout", UserController, :logout 
   end
 

@@ -1,0 +1,101 @@
+  <div class="panel panel-default">
+      <div class="panel-heading"></div>
+      <div class="panel-body">
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :block_int, class: "control-label" %>
+    <%= number_input f, :block_int, class: "form-control" %>
+    <%= error_tag f, :block_int %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :network, class: "control-label" %>
+    <%= text_input f, :network, class: "form-control" %>
+    <%= error_tag f, :network %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :token, class: "control-label" %>
+    <%= text_input f, :token, class: "form-control" %>
+    <%= error_tag f, :token %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :contract, class: "control-label" %>
+    <%= text_input f, :contract, class: "form-control" %>
+    <%= error_tag f, :contract %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :hash, class: "control-label" %>
+    <%= text_input f, :hash, class: "form-control" %>
+    <%= error_tag f, :hash %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :from, class: "control-label" %>
+    <%= text_input f, :from, class: "form-control" %>
+    <%= error_tag f, :from %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :to, class: "control-label" %>
+    <%= text_input f, :to, class: "form-control" %>
+    <%= error_tag f, :to %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :block, class: "control-label" %>
+    <%= text_input f, :block, class: "form-control" %>
+    <%= error_tag f, :block %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :input, class: "control-label" %>
+    <%= text_input f, :input, class: "form-control" %>
+    <%= error_tag f, :input %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :erc20_value, class: "control-label" %>
+    <%= number_input f, :erc20_value, class: "form-control" %>
+    <%= error_tag f, :erc20_value %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :eth_value, class: "control-label" %>
+    <%= number_input f, :eth_value, class: "form-control" %>
+    <%= error_tag f, :eth_value %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :gas, class: "control-label" %>
+    <%= text_input f, :gas, class: "form-control" %>
+    <%= error_tag f, :gas %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :gas_price, class: "control-label" %>
+    <%= text_input f, :gas_price, class: "form-control" %>
+    <%= error_tag f, :gas_price %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :type, class: "control-label" %>
+    <%= text_input f, :type, class: "form-control" %>
+    <%= error_tag f, :type %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+    <span><%= link "Cancel", to: transaction_path(@conn, :index), class: "btn btn-warning" %></span>
+  </div>
+<% end %>
+</div>
+</div>
