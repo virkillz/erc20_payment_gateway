@@ -1,0 +1,49 @@
+
+       <div class="content-header row">
+          <div class="content-header-left col-md-4 col-12 mb-2">
+            <h3 class="content-header-title">New <%= schema.human_singular %></h3>
+          </div>
+          <div class="content-header-right col-md-8 col-12">
+            <div class="breadcrumbs-top float-md-right">
+              <div class="breadcrumb-wrapper mr-1">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="/admin">Home</a>
+                  </li>
+                  <li class="breadcrumb-item"><a href="/admin/<%= schema.human_singular %>"><%= schema.human_singular %></a>
+                  </li>                  
+                  <li class="breadcrumb-item active">New <%= schema.human_singular %>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>          
+        <div class="content-body"><!-- Revenue, Hit Rate & Deals -->  
+
+<div class="row">
+    <div class="col-lg-12 col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">New <%= schema.human_singular %></h4>
+                <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                <div class="heading-elements">
+                </div>
+            </div>
+            <div class="card-content collapse show">
+                <div class="card-body p-0 pb-0">
+<div class="container">
+
+<%# ======================== %>
+
+<%%= render "form.html", Map.put(assigns, :action, <%= schema.route_helper %>_path(@conn, :create)) %>
+
+<%# ======================== %>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>

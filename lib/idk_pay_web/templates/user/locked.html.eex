@@ -1,0 +1,47 @@
+
+
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+<section class="flexbox-container">
+    <div class="col-12 d-flex align-items-center justify-content-center">
+        <div class="col-md-4 col-10 box-shadow-2 p-0">
+            <div class="card border-grey border-lighten-3 px-2 py-2 m-0">
+                <div class="card-header border-0 text-center">
+                    <img src="<%= static_path(@conn, @avatar) %>" alt="unlock-user" class="rounded-circle img-fluid center-block" style="max-width: 120px; max-height: 120px">
+                    <h5 class="card-title mt-1"><%= @name %></h5>
+                </div>
+
+                <p class="card-subtitle line-on-side text-muted text-center font-small-3 mx-2">
+                    <span>Unlock your account</span>
+                </p>
+                <div class="card-content">
+                    <div class="card-body">
+                    <%= form_for @changeset, "/login", [class: "form-horizontal text-center"], fn f -> %>                             
+                            <fieldset class="form-group position-relative has-icon-left">
+                            <input type="hidden" name="username" value="<%= @username %>">                                 
+                                <input type="password" name="password" class="form-control round" id="password" placeholder="Enter Password" required>
+                                <div class="form-control-position">
+                                    <i class="la la-key"></i>
+                                </div>
+                            </fieldset>
+                            <div class="form-group row">
+                                <div class="col-12 float-sm-left text-center text-sm-right">
+                                    <a href="/login" class="card-link">
+                                        <i class="ft-unlock"></i> Not <%= @name %>?</a>
+                                </div>
+                            </div>
+
+                            <div class="form-group text-center">
+                                <button type="submit" class="btn round btn-block btn-glow btn-bg-gradient-x-purple-blue col-12 mr-1 mb-1">Unlock</button>
+                            </div>
+
+                            <div class="col-12 float-sm-left text-center text-sm-center mt-2">Or
+                                <a href="/login" class="card-link"> Logout</a> from this system</div>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- ////////////////////////////////////////////////////////////////////////////-->        

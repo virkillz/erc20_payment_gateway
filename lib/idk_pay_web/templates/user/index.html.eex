@@ -1,0 +1,80 @@
+
+       <div class="content-header row">
+          <div class="content-header-left col-md-4 col-12 mb-2">
+            <h3 class="content-header-title">User List</h3>
+          </div>
+          <div class="content-header-right col-md-8 col-12">
+            <div class="breadcrumbs-top float-md-right">
+              <div class="breadcrumb-wrapper mr-1">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="index.html">Home</a>
+                  </li>
+                  <li class="breadcrumb-item"><a href="index.html">User List</a>
+                  </li>                  
+                  <li class="breadcrumb-item active">Index
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>          
+        <div class="content-body"><!-- Revenue, Hit Rate & Deals -->  
+
+<div class="row">
+    <div class="col-lg-12 col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">User List</h4>
+                <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                <div class="heading-elements">
+                    <ul class="list-inline mb-0">
+                        <li><a href="/admin/user/new"><button type="button" class="btn btn-glow btn-round btn-bg-gradient-x-red-pink">Create New User</button></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-content collapse show">
+                <div class="card-body p-0 pb-0">
+<br>
+
+<%# ======================== %>
+<div class="container">
+
+                            <table class="table">
+                                <thead class="bg-primary white">
+                                  <th>Fullname</th>
+                                  <th>Username</th>
+                                  <th>Role</th>
+                                  <th>Is active</th>
+                                <th></th>
+                                </thead>
+                                <tbody>
+                                <%= for user <- @user do %>
+                                    <tr>
+                                      <td><img src="<%= static_path(@conn, user.avatar) %>" class="user-image img-circle" alt="User Image" height="50px" > <strong><%= user.fullname %></strong></td>
+                                      <td><%= user.username %></td>
+                                      <td><%= user.role %></td>
+                                      <% status = if user.is_active == true do "label-success" else "label-danger" end %>
+                                      <td><span class="label <%= status %>"><%= user.is_active %></span></td>
+
+                                      <td class="text-right">
+                                        <span><%= link "Show", to: user_path(@conn, :show, user), class: "btn btn-default btn-xs" %></span>
+                                        <span><%= link "Edit", to: user_path(@conn, :edit, user), class: "btn btn-default btn-xs" %></span>
+                                        <span><%= link "Delete", to: user_path(@conn, :delete, user), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+                                      </td>
+                                    </tr>
+                                <% end %>
+                                </tbody>
+                            </table>
+
+</div>
+<br>
+<%# ======================== %>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>

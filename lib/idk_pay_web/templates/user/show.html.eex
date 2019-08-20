@@ -1,0 +1,138 @@
+
+<div class="content-header row">
+          <div class="content-header-left col-md-4 col-12 mb-2">
+            <h3 class="content-header-title"></h3>
+          </div>
+          <div class="content-header-right col-md-8 col-12">
+            <div class="breadcrumbs-top float-md-right">
+              <div class="breadcrumb-wrapper mr-1">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="index.html">Home</a>
+                  </li>
+                  <li class="breadcrumb-item"><a href="index.html">User List</a>
+                  </li>                  
+                  <li class="breadcrumb-item active">Show
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>          
+        <div class="content-body"><!-- Revenue, Hit Rate & Deals -->  
+
+
+
+<div class="row">
+    <div class="col-lg-12 col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">User List</h4>
+                <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                <div class="heading-elements">
+                    <ul class="list-inline mb-0">
+                        <li><a href="<%= user_path(@conn, :edit, @user) %>"><button type="button" class="btn btn-glow btn-round btn-bg-gradient-x-red-pink">Edit User</button></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-content collapse show">
+                <div class="card-body p-0 pb-0">
+
+
+<%# ======================== %>
+<div class="container">
+                <form class="form-horizontal" role="form">                                    
+                  <div class="form-group">
+                      <label class="col-sm-2 control-label">Fullname:</label>
+                      <div class="col-sm-10">
+                        <p class="form-control-static">
+                          <%= @user.fullname %>
+                        </p>
+                      </div>
+                  </div>   
+
+                  <div class="form-group">
+                      <label class="col-sm-2 control-label">Username:</label>
+                      <div class="col-sm-10">
+                        <p class="form-control-static">
+                          <%= @user.username %>
+                        </p>
+                      </div>
+                  </div>    
+
+                  <div class="form-group">
+                      <label class="col-sm-2 control-label">Avatar:</label>
+                      <div class="col-sm-10">
+                      <img src="<%= static_path(@conn, @user.avatar) %>" class="user-image" alt="User Image" height="100px">
+                      </div>
+                  </div>   
+
+                  <div class="form-group">
+                      <label class="col-sm-2 control-label">Role:</label>
+                      <div class="col-sm-10">
+                        <p class="form-control-static">
+                          <%= @user.role %>
+                        </p>
+                      </div>
+                  </div>   
+
+                  <div class="form-group">
+                      <label class="col-sm-2 control-label">Is active:</label>
+                      <div class="col-sm-10">
+                        <p class="form-control-static">
+                          <%= @user.is_active %>
+                        </p>
+                      </div>
+                  </div>      
+
+                  <div class="form-group">
+                      <label class="col-sm-2 control-label">Email:</label>
+                      <div class="col-sm-10">
+                        <p class="form-control-static">
+                          <%= @user.email %>
+                        </p>
+                      </div>
+                  </div>   
+
+                  <div class="form-group">
+                      <label class="col-sm-2 control-label">Mobile:</label>
+                      <div class="col-sm-10">
+                        <p class="form-control-static">
+                          <%= @user.mobile %>
+                        </p>
+                      </div>
+                  </div>   
+
+                  <div class="form-group">
+                      <label class="col-sm-2 control-label">Bio:</label>
+                      <div class="col-sm-10">
+                        <p class="form-control-static">
+                        <%= @user.bio %>
+                      </p>
+                      </div>
+                  </div>   
+
+                  <div class="form-group">
+                      <label class="col-sm-2 control-label">Location:</label>
+                      <div class="col-sm-10">
+                        <p class="form-control-static">
+                          <%= @user.location %>
+                        </p>
+                      </div>
+                  </div>  
+                    <div class="form-group">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-10">
+                          <a href="<%= user_path(@conn, :index) %>" class="btn btn-primary">Close</a>
+                        </div>
+                    </div>                                                                                                                         
+                </form>
+</div>
+<%# ======================== %>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>

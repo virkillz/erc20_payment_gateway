@@ -1,0 +1,46 @@
+            <section class="cover height-70 imagebg text-center slider slider--ken-burns" data-arrows="true" data-paging="true">
+                <ul class="slides">
+                    <li class="imagebg" data-overlay="4">
+                        <div class="background-image-holder background--top">
+                            <img alt="background" src="img/landing-2.jpg" />
+                        </div>
+                        <div class="container pos-vertical-center">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h1>
+                                        Put your content here
+                                    </h1>
+                                    <a class="btn btn--primary type--uppercase" href="#">
+                                        <span class="btn__text">
+                                            More Info
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <!--end of row-->
+                        </div>
+                        <!--end of container-->
+                    </li>
+                    <li class="imagebg" data-overlay="4">
+                        <div class="background-image-holder">
+                            <img alt="background" src="img/landing-3.jpg" />
+                        </div>
+                        <div class="container pos-vertical-center">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h1>
+                                        Build a kickass product
+                                    </h1>
+                                    <a class="btn btn--primary type--uppercase" href="#">
+                                        <span class="btn__text">
+                                            Start
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <!--end of row-->
+                        </div>
+                        <!--end of container-->
+                    </li>
+                </ul>
+            </section>  

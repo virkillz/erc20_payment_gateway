@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="author" content="VirKill">
+    <title>IdkPay Admin</title>
+    <link rel="apple-touch-icon" href="/app-assets/images/ico/apple-icon-120.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/app-assets/images/ico/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i,600,600i,700,700i%7CComfortaa:300,400,700" rel="stylesheet">
+    <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css" rel="stylesheet">
+    <!-- BEGIN VENDOR CSS-->
+    <link rel="stylesheet" type="text/css" href="/app-assets/css/vendors.css">
+    <link rel="stylesheet" type="text/css" href="/app-assets/vendors/css/charts/chartist.css">
+    <link rel="stylesheet" type="text/css" href="/app-assets/vendors/css/charts/chartist-plugin-tooltip.css">
+    <!-- END VENDOR CSS-->
+    <!-- BEGIN CHAMELEON  CSS-->
+    <link rel="stylesheet" type="text/css" href="/app-assets/css/app.css">
+    <!-- END CHAMELEON  CSS-->
+    <!-- BEGIN Page Level CSS-->
+    <link rel="stylesheet" type="text/css" href="/app-assets/css/core/menu/menu-types/vertical-menu.css">
+    <link rel="stylesheet" type="text/css" href="/app-assets/css/core/colors/palette-gradient.css">
+    <link rel="stylesheet" type="text/css" href="/app-assets/css/core/colors/palette-gradient.css">
+    <link rel="stylesheet" type="text/css" href="/app-assets/css/pages/chat-application.css">
+    <link rel="stylesheet" type="text/css" href="/app-assets/css/pages/dashboard-analytics.css">
+    <link rel="stylesheet" type="text/css" href="/css/unpoly.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/app.css">    
+    
+
+    <!-- END Page Level CSS-->
+    <!-- BEGIN Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+    <!-- END Custom CSS-->
+  </head>
+  <body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar" data-open="click" data-menu="vertical-menu" data-color="bg-blue" data-col="2-columns">
+
+    <nav class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-semi-light"> 
+      <div class="navbar-wrapper">
+        <div class="navbar-container content">
+          <div class="collapse navbar-collapse show" id="navbar-mobile">
+            <ul class="nav navbar-nav mr-auto float-left">
+              <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu font-large-1"></i></a></li>
+              <li class="nav-item d-none d-md-block"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu"></i></a></li>
+              <li class="nav-item d-none d-md-block"><a class="nav-link nav-link-expand" href="#"><i class="ficon ft-maximize"></i></a></li>
+              <li class="nav-item dropdown navbar-search"><a class="nav-link dropdown-toggle hide" data-toggle="dropdown" href="#"><i class="ficon ft-search"></i></a>
+                <ul class="dropdown-menu">
+                  <li class="arrow_box">
+                    <form>
+                      <div class="input-group search-box">
+                        <div class="position-relative has-icon-right full-width">
+                          <input class="form-control" id="search" type="text" placeholder="Search here...">
+                          <div class="form-control-position navbar-search-close"><i class="ft-x"></i></div>
+                        </div>
+                      </div>
+                    </form>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav float-right">         
+              <li class="dropdown dropdown-notification nav-item"><a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-bell bell-shake" id="notification-navbar-link"></i><span class="badge badge-pill badge-sm badge-danger badge-default badge-up badge-glow">5</span></a>
+                <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
+                  <div class="arrow_box_right">
+                    <li class="dropdown-menu-header">
+                      <h6 class="dropdown-header m-0"><span class="grey darken-2">Notifications</span></h6>
+                    </li>
+                    <li class="scrollable-container media-list w-100"><a href="javascript:void(0)">
+                        <div class="media">
+                          <div class="media-left align-self-center"><i class="ft-share info font-medium-4 mt-2"></i></div>
+                          <div class="media-body">
+                            <h6 class="media-heading info">New Order Received</h6>
+                            <p class="notification-text font-small-3 text-muted text-bold-600">Lorem ipsum dolor sit amet!</p><small>
+                              <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">3:30 PM</time></small>
+                          </div>
+                        </div></a><a href="javascript:void(0)">
+                        <div class="media">
+                          <div class="media-left align-self-center"><i class="ft-save font-medium-4 mt-2 warning"></i></div>
+                          <div class="media-body">
+                            <h6 class="media-heading warning">New User Registered</h6>
+                            <p class="notification-text font-small-3 text-muted text-bold-600">Aliquam tincidunt mauris eu risus.</p><small>
+                              <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">10:05 AM</time></small>
+                          </div>
+                        </div></a><a href="javascript:void(0)">
+                        <div class="media">
+                          <div class="media-left align-self-center"><i class="ft-repeat font-medium-4 mt-2 danger"></i></div>
+                          <div class="media-body">
+                            <h6 class="media-heading danger">New Purchase</h6>
+                            <p class="notification-text font-small-3 text-muted text-bold-600">Lorem ipsum dolor sit ametest?</p><small>
+                              <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">Yesterday</time></small>
+                          </div>
+                        </div></a><a href="javascript:void(0)">
+                        <div class="media">
+                          <div class="media-left align-self-center"><i class="ft-shopping-cart font-medium-4 mt-2 primary"></i></div>
+                          <div class="media-body">
+                            <h6 class="media-heading primary">New Item In Your Cart</h6><small>
+                              <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">Last week</time></small>
+                          </div>
+                        </div></a><a href="javascript:void(0)">
+                        <div class="media">
+                          <div class="media-left align-self-center"><i class="ft-heart font-medium-4 mt-2 info"></i></div>
+                          <div class="media-body">
+                            <h6 class="media-heading info">New Sale</h6><small>
+                              <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">Last month</time></small>
+                          </div>
+                        </div></a></li>
+                    <li class="dropdown-menu-footer"><a class="dropdown-item info text-right pr-1" href="javascript:void(0)">Read all</a></li>
+                  </div>
+                </ul>
+              </li>
+              <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">             <span class="avatar avatar-online"><img src="<%= static_path(@conn, @conn.private.guardian_default_resource.avatar) %>" alt="avatar"></span></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <div class="arrow_box_right"><a class="dropdown-item" href="#"><span class="avatar avatar-online"><img src="<%= static_path(@conn, @conn.private.guardian_default_resource.avatar) %>" alt="avatar"><span class="user-name text-bold-700 ml-1"><%= @conn.private.guardian_default_resource.fullname %></span></span></a>
+                    <div class="dropdown-divider"></div><a class="dropdown-item" href="user-profile.html"><i class="ft-user"></i> Edit Profile</a><a class="dropdown-item" href="email-application.html"><i class="ft-mail"></i> My Inbox</a><a class="dropdown-item" href="project-summary.html"><i class="ft-check-square"></i> Task</a><a class="dropdown-item" href="chat-application.html"><i class="ft-message-square"></i> Chats</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/admin/locked"><i class="ft-unlock"></i> Lock Screen</a>
+                    <a class="dropdown-item" href="/admin/logout"><i class="ft-power"></i> Logout</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+
+    <div class="main-menu menu-fixed menu-light menu-accordion    menu-shadow " data-scroll-to-active="true" data-img="/app-assets/images/backgrounds/02.jpg">
+      <div class="navbar-header">
+        <ul class="nav navbar-nav flex-row">       
+          <li class="nav-item mr-auto"><a class="navbar-brand" href="/admin"><img class="brand-logo" alt="Chameleon admin logo" src="/img/idk_pay-logo-color-small.png"/>
+              <h3 class="brand-text">IdkPay</h3></a></li>
+          <li class="nav-item d-md-none"><a class="nav-link close-navbar"><i class="ft-x"></i></a></li>
+        </ul>
+      </div>
+      <div class="main-menu-content">
+        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+          <li class="active nav-item"><a href="/admin" up-target=".main" up-transition="move-right"><i class="ft-home"></i><span class="menu-title" data-i18n="">Dashboard</span></a>
+          </li>          
+          <li class=" nav-item"><a href="#"><i class="ft-layers"></i><span class="menu-title" data-i18n="">Portal management</span></a>
+            <ul class="menu-content">
+              <li><a class="menu-item" href="/admin/activity" up-target=".main" up-transition="move-right">Activity Monitor</a>
+              </li>
+              <li><a class="menu-item" href="/admin/user" up-target=".main" up-transition="move-right">User management</a>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="navigation-background"></div>
+    </div>
+
+    <div class="app-content content">
+      <div class="content-wrapper">
+        <div class="content-wrapper-before main"></div>
+     
+
+
+<%= render @view_module, @view_template, assigns %>
+
+
+      </div>
+    </div>
+
+    <footer class="footer footer-static footer-light navbar-border navbar-shadow">
+      <div class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2"><span class="float-md-left d-block d-md-inline-block">2018  &copy; Copyright <a class="text-bold-800 grey darken-2" href="https://virkill.com" target="_blank">VirKill</a></span>
+      </div>
+    </footer>
+
+    <!-- BEGIN VENDOR JS-->
+    <script src="/app-assets/vendors/js/vendors.min.js" type="text/javascript"></script>
+    <!-- BEGIN VENDOR JS-->
+    <!-- BEGIN PAGE VENDOR JS-->
+    <script src="/app-assets/vendors/js/charts/chartist.min.js" type="text/javascript"></script>
+    <script src="/app-assets/vendors/js/charts/chartist-plugin-tooltip.min.js" type="text/javascript"></script>
+    <!-- END PAGE VENDOR JS-->
+
+    <script src="/app-assets/js/core/app-menu.js" type="text/javascript"></script>
+    <script src="/app-assets/js/core/app.js" type="text/javascript"></script>
+    <script src="/js/app.js" type="text/javascript"></script>    
+    <script src="/js/unpoly.min.js" type="text/javascript"></script>   
+
+    <!-- BEGIN PAGE LEVEL JS-->
+    <script src="/app-assets/js/scripts/pages/dashboard-analytics.js" type="text/javascript"></script>
+    <!-- END PAGE LEVEL JS-->
+  </body>
+</html>

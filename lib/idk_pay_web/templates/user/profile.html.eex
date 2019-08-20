@@ -1,0 +1,227 @@
+<div class="wraper container-fluid">
+    <section class="content-header">
+      <h1>
+        User Profile
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/admin"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">User</a></li>
+        <li class="active">profile</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <div class="row">
+        <div class="col-md-3">
+
+          <!-- Profile Image -->
+          <div class="box box-primary">
+            <div class="box-body box-profile">
+              <img class="profile-user-img img-responsive img-circle" src="<%= static_path(@conn, @conn.private.guardian_default_resource.avatar) %>"" alt="User profile picture">
+
+              <h3 class="profile-username text-center"><%= @conn.private.guardian_default_resource.fullname %></h3>
+
+              <p class="text-muted text-center"><%= @conn.private.guardian_default_resource.role %></p>
+
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+          <!-- About Me Box -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">About Me</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <strong><i class="fa fa-book margin-r-5"></i> Fullname</strong>
+
+              <p class="text-muted">
+                <%= @conn.private.guardian_default_resource.fullname %>
+              </p>
+
+              <hr>
+
+              <strong><i class="fa fa-mobile margin-r-5"></i> Mobile</strong>
+
+              <p class="text-muted"><%= @conn.private.guardian_default_resource.mobile %></p>
+
+              <hr>
+
+              <strong><i class="fa fa-map-marker margin-r-5"></i> Location</strong>
+
+              <p class="text-muted"><%= @conn.private.guardian_default_resource.location %></p>
+
+              <hr>              
+
+              <strong><i class="fa fa-pencil margin-r-5"></i> Email</strong>
+
+              <p class="text-muted"><%= @conn.private.guardian_default_resource.email %></p>
+
+              <hr>
+
+              <strong><i class="fa fa-file-text-o margin-r-5"></i> Notes</strong>
+
+                            <p><%= @conn.private.guardian_default_resource.bio %></p>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-9">
+          <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+              <li class="avtive"><a href="#timeline" data-toggle="tab">Timeline</a></li>
+              <li><a href="#settings" data-toggle="tab">Settings</a></li>
+            </ul>
+            <div class="tab-content">
+              <!-- /.tab-pane -->
+              <div class="active tab-pane" id="timeline">
+                <!-- The timeline -->
+                <ul class="timeline timeline-inverse">
+                  <!-- timeline time label -->
+                                     
+                  <%= for history <- @history do %>
+                  <li class="time-label">
+                        <span class="bg-red">                          
+                          <%  {date, activity} = history %>
+                          <%=  date %>
+                        </span>
+                  </li>
+                  <%= for log <- activity do %>
+                  <li>
+                    <i class="fa fa-user bg-aqua"></i>
+
+                    <div class="timeline-item">
+                      <span class="time"><i class="fa fa-clock-o"></i> <%= log.ago %> </span>
+
+                      <h3 class="timeline-header no-border"><a href="#">You</a> <%= log.activity %>
+                      </h3>
+                    </div>
+                  </li>
+                  <% end %>
+                  <% end %>
+
+
+                  <li>
+                    <i class="fa fa-clock-o bg-gray"></i>
+                  </li>
+                </ul>
+              </div>
+              <!-- /.tab-pane -->
+
+              <div class="tab-pane" id="settings">
+
+                                <%= form_for @changeset, user_path(@conn, :update, @user),[multipart: true, class: "form-horizontal"], fn f -> %>
+                                  <%= if @changeset.action do %>
+                                    <div class="alert alert-danger">
+                                      <p>Oops, something went wrong! Please check the errors below.</p>
+                                    </div>
+                                  <% end %>
+
+
+                                  <div class="form-group">
+                                    <%= label f, :fullname, class: "control-label col-sm-2" %>
+                                    <div class="col-sm-10">
+                                      <%= text_input f, :fullname, class: "form-control" %>
+                                      <%= error_tag f, :fullname %>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group">
+                                    <%= label f, :username, class: "control-label col-sm-2" %>
+                                    <div class="col-sm-10">
+                                      <%= text_input f, :username, class: "form-control" %>
+                                      <%= error_tag f, :username %>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group">
+                                    <%= label f, :avatar, class: "control-label col-sm-2" %>
+                                    <div class="col-sm-10">
+                                      <%= file_input f, :avatar, class: "form-control" %>
+                                      <%= error_tag f, :avatar %>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group">
+                                    <%= label f, :role, class: "control-label col-sm-2" %>
+                                    <div class="col-sm-10">
+                                      <%= text_input f, :role, class: "form-control" %>
+                                      <%= error_tag f, :role %>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group">
+                                    <%= label f, :is_active, class: "control-label col-sm-2" %>
+                                    <div class="col-sm-10">
+                                      <%= checkbox f, :is_active, class: "checkbox" %>
+                                      <%= error_tag f, :is_active %>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group">
+                                    <%= label f, :email, class: "control-label col-sm-2" %>
+                                    <div class="col-sm-10">
+                                      <%= text_input f, :email, class: "form-control" %>
+                                      <%= error_tag f, :email %>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group">
+                                    <%= label f, :mobile, class: "control-label col-sm-2" %>
+                                    <div class="col-sm-10">
+                                      <%= text_input f, :mobile, class: "form-control" %>
+                                      <%= error_tag f, :mobile %>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group">
+                                    <%= label f, :location, class: "control-label col-sm-2" %>
+                                    <div class="col-sm-10">
+                                      <%= text_input f, :location, class: "form-control" %>
+                                      <%= error_tag f, :location %>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group">
+                                    <%= label f, "About me", class: "control-label col-sm-2" %>
+                                    <div class="col-sm-10">
+                                      <%= textarea f, :bio, class: "form-control" %>
+                                      <%= error_tag f, :bio %>
+                                    </div>
+                                  </div>  
+
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" required=""> I agree to the <a href="#">terms and conditions</a>
+                        </label>
+                      </div>
+                    </div>
+                  </div>                                  
+
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <%= submit "Submit", class: "btn btn-danger" %>
+                    </div>                                    
+                  </div>
+                <% end %>                
+              </div>
+              <!-- /.tab-pane -->
+            </div>
+            <!-- /.tab-content -->
+          </div>
+          <!-- /.nav-tabs-custom -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+    </section>
+    <!-- /.content -->

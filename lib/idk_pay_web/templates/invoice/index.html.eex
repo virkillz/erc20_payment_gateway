@@ -1,0 +1,93 @@
+
+       <div class="content-header row">
+          <div class="content-header-left col-md-4 col-12 mb-2">
+            <h3 class="content-header-title">Invoice List</h3>
+          </div>
+          <div class="content-header-right col-md-8 col-12">
+            <div class="breadcrumbs-top float-md-right">
+              <div class="breadcrumb-wrapper mr-1">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="/admin>Home</a>
+                  </li>
+                  <li class="breadcrumb-item"><a href="/admin/Invoice">Invoice List</a>
+                  </li>                  
+                  <li class="breadcrumb-item active">Index
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>          
+        <div class="content-body"><!-- Revenue, Hit Rate & Deals -->  
+
+<div class="row">
+    <div class="col-lg-12 col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Invoice List</h4>
+                <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                <div class="heading-elements">
+                    <ul class="list-inline mb-0">
+                        <li>
+                          <%= link "New Invoice", to: invoice_path(@conn, :new), class: "btn btn-glow btn-round btn-bg-gradient-x-red-pink" %>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-content collapse show">
+                <div class="card-body p-0 pb-0">
+<br>
+
+
+<div class="container">
+
+                            <table class="table">
+                                <thead class="bg-primary white">
+                                <tr>
+                                  <th>Token</th>
+                                  <th>Amount</th>
+                                  <th>Fee</th>
+                                  <th>Total</th>
+                                  <th>Payment status</th>
+                                  <th>Invoice status</th>
+                                  <th>Expiry date</th>
+                                  <th>Purpose</th>
+                            
+                                  <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                  <%= for invoice <- @invoices do %>
+                                      <tr>
+                                        <td><%= invoice.token %></td>
+                                        <td><%= invoice.amount %></td>
+                                        <td><%= invoice.fee %></td>
+                                        <td><%= invoice.total %></td>
+                                        <td><%= invoice.payment_status %></td>
+                                        <td><%= invoice.invoice_status %></td>
+                                        <td><%= invoice.expiry_date %></td>
+                                        <td><%= invoice.purpose %></td>
+                                  
+                                        <td class="text-right">
+                                          <span><%= link "Show", to: invoice_path(@conn, :show, invoice), class: "btn btn-default btn-xs" %></span>
+                                          <span><%= link "Edit", to: invoice_path(@conn, :edit, invoice), class: "btn btn-default btn-xs" %></span>
+                                          <span><%= link "Delete", to: invoice_path(@conn, :delete, invoice), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+                                        </td>
+                                      </tr>
+                                  <% end %>
+                                </tbody>
+                            </table>
+
+</div>
+<br>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+

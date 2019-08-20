@@ -1,0 +1,36 @@
+            <section class="height-100 imagebg text-center" data-overlay="4">
+                <div class="background-image-holder">
+                    <img alt="background" src="/img/inner-6.jpg" />
+                </div>
+                <div class="container pos-vertical-center">
+                    <div class="row">
+                        <div class="col-md-7 col-lg-5">
+                            <h2>Login to continue</h2>
+                <p class="alert alert-danger alert-dismissible fade in" role="alert"><%= get_flash(@conn, :error) %></p>  
+                <p class="alert alert-info alert-dismissible fade in" role="alert"><%= get_flash(@conn, :info) %></p>                            
+                    <%= form_for @changeset, "/login", [class: "form-horizontal"], fn f -> %> 
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input type="email" name="email" placeholder="Email" />
+                                    </div>
+                                    <div class="col-md-12">
+                                        <input type="password" name="password" placeholder="Password" />
+                                    </div>
+                                    <div class="col-md-12">
+                                        <button class="btn btn--primary type--uppercase" type="submit">Login</button>
+                                    </div>
+                                </div>
+                                <!--end of row-->
+                            <% end %>
+                            <span class="type--fine-print block">Dont have an account yet?
+                                <a href="/register">Create account</a>
+                            </span>
+                            <span class="type--fine-print block">Forgot your username or password?
+                                <a href="/recover">Recover account</a>
+                            </span>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>

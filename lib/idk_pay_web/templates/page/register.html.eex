@@ -1,0 +1,63 @@
+
+
+
+            <section class="height-100 imagebg text-center" data-overlay="4">
+                <div class="background-image-holder">
+                    <img alt="background" src="/img/inner-6.jpg" />
+                </div>
+                <div class="container pos-vertical-center">
+                    <div class="row">
+                        <div class="col-md-7 col-lg-5">
+                            <h2>Create a IdkPay account</h2>
+                            <p class="lead">Write something interesting here</p>
+                            <a class="btn block btn--icon bg--facebook type--uppercase" href="#">
+                                <span class="btn__text">
+                                    <i class="socicon-facebook"></i>
+                                    Sign up with Facebook
+                                </span>
+                            </a>
+                            <a class="btn block btn--icon bg--twitter type--uppercase" href="#">
+                                <span class="btn__text">
+                                    <i class="socicon-twitter"></i>
+                                    Sign up with Twitter
+                                </span>
+                            </a>
+                            <hr>                          
+                    <%= form_for @changeset, "/register", [class: "form-horizontal"], fn f -> %>    
+
+                                <div class="row">
+                                                <%= if @changeset.action do %>
+                                                <div class="alert alert-danger col-12">
+                                                  <p>Oops, something went wrong! Please check the errors below.</p>
+                                                </div>
+                                              <% end %>                                    
+                                    
+                                    <div class="col-12">
+                                    <%= text_input f, :username, [class: "form-control", placeholder: "Username"] %>
+                                        <%= error_tag f, :username %>
+                                    </div>
+                                    <div class="col-12">
+                                    <%= email_input f, :email, [class: "form-control", placeholder: "Email Address"] %>                  
+                                        <%= error_tag f, :email %>
+                                    </div>                                    
+                                    <div class="col-12">
+                                    <%= password_input f, :password, [class: "form-control", placeholder: "Password"] %>
+                                        <%= error_tag f, :password %>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn--primary type--uppercase">Create Account</button>
+                                    </div>
+                                    <div class="col-12">
+                                        <span class="type--fine-print">By signing up, you agree to the
+                                            <a href="#">Terms of Service</a>
+                                        </span>
+                                    </div>
+                                </div>
+
+                            <% end %>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>            
