@@ -1,29 +1,17 @@
 
 
 
-            <section class="height-100 imagebg text-center" data-overlay="4">
+            <section class="height-100 imagebg text-center" data-overlay="9">
                 <div class="background-image-holder">
-                    <img alt="background" src="/img/inner-6.jpg" />
+                    <img alt="background" src="/img/bg.svg" />
                 </div>
                 <div class="container pos-vertical-center">
                     <div class="row">
                         <div class="col-md-7 col-lg-5">
-                            <h2>Create a IdkPay account</h2>
-                            <p class="lead">Write something interesting here</p>
-                            <a class="btn block btn--icon bg--facebook type--uppercase" href="#">
-                                <span class="btn__text">
-                                    <i class="socicon-facebook"></i>
-                                    Sign up with Facebook
-                                </span>
-                            </a>
-                            <a class="btn block btn--icon bg--twitter type--uppercase" href="#">
-                                <span class="btn__text">
-                                    <i class="socicon-twitter"></i>
-                                    Sign up with Twitter
-                                </span>
-                            </a>
+                            <h2>Create account</h2>
+                            <p class="lead">Sign up your business</p>
                             <hr>                          
-                    <%= form_for @changeset, "/register", [class: "form-horizontal"], fn f -> %>    
+                            <%= form_for @changeset, "/register", [class: "form-horizontal"], fn f -> %>    
 
                                 <div class="row">
                                                 <%= if @changeset.action do %>

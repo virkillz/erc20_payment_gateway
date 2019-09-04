@@ -7,9 +7,9 @@
             <div class="breadcrumbs-top float-md-right">
               <div class="breadcrumb-wrapper mr-1">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="/admin>Home</a>
+                  <li class="breadcrumb-item"><a href="/admin">Home</a>
                   </li>
-                  <li class="breadcrumb-item"><a href="/admin/Invoice">Invoice List</a>
+                  <li class="breadcrumb-item"><a href="/admin/invoice">Invoice List</a>
                   </li>                  
                   <li class="breadcrumb-item active">Index
                   </li>
@@ -36,11 +36,8 @@
             </div>
             <div class="card-content collapse show">
                 <div class="card-body p-0 pb-0">
-<br>
-
-
-<div class="container">
-
+                        <br>
+                        <div class="container">
                             <table class="table">
                                 <thead class="bg-primary white">
                                 <tr>

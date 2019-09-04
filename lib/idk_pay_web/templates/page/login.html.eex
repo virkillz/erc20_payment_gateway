@@ -1,23 +1,11 @@
-            <section class="height-100 imagebg text-center" data-overlay="4">
+            <section class="height-100 imagebg text-center" data-overlay="9">
                 <div class="background-image-holder">
-                    <img alt="background" src="/img/inner-6.jpg" />
+                    <img alt="background" src="/img/bg.svg" />
                 </div>
                 <div class="container pos-vertical-center">
                     <div class="row">
                         <div class="col-md-7 col-lg-5">
-                            <h2>Login to continue</h2>
-                            <a class="btn block btn--icon bg--facebook type--uppercase" href="#">
-                                <span class="btn__text">
-                                    <i class="socicon-facebook"></i>
-                                    Login with Facebook
-                                </span>
-                            </a>
-                            <a class="btn block btn--icon bg--twitter type--uppercase" href="#">
-                                <span class="btn__text">
-                                    <i class="socicon-twitter"></i>
-                                    Login with Twitter
-                                </span>
-                            </a>                                            
+                            <h2>Login to continue</h2>                                           
                             <hr>
                             <p>Login using your IdkPay account</p>
                 <p class="alert alert-danger alert-dismissible fade in" role="alert"><%= get_flash(@conn, :error) %></p>  

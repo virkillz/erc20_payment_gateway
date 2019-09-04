@@ -2,8 +2,8 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>IdkPay Front End</title>
-        <meta name="description" content="Boilerplate for making web application" />
+        <title>IDKPay - IDK simple payment gateway</title>
+        <meta name="description" content="Simple payment gateway receiving IDK" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="/css/stack-interface.css" rel="stylesheet" type="text/css" media="all">
         <link href="/css/socicon.css" rel="stylesheet" type="text/css" media="all" />
@@ -11,10 +11,12 @@
         <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
         <link href="/css/flickity.css" rel="stylesheet" type="text/css" media="all" />
         <link href="/css/stack-interface.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="/css/theme.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="/css/theme-red.css" rel="stylesheet" type="text/css" media="all" />
         <link href="/css/custom.css" rel="stylesheet" type="text/css" media="all" />
         <link href="/css/app.css" rel="stylesheet" type="text/css" media="all" />        
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:200,300,400,400i,500,600,700" rel="stylesheet">
+        <%# <link href="https://fonts.googleapis.com/css?family=Open+Sans:200,300,400,400i,500,600,700" rel="stylesheet"> %>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,500i,700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css">        
 
     </head>
     <body data-smooth-scroll-offset="77">
@@ -24,7 +26,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-3 col-md-2">
-                                <a href="/"> <img class="logo logo-dark" alt="logo" src="/img/logo-dark.png"> <img class="logo logo-light" alt="logo" src="/img/logo-light.png"> </a>
+                                <a href="/"> <img class="logo logo-dark" alt="logo" src="/img/idkpay.png"> <img class="logo logo-light" alt="logo" src="/img/logo-light.png"> </a>
                             </div>
                             <div class="col-9 col-md-10 text-right">
                                 <a href="#" class="hamburger-toggle" data-toggle-class="#menu1;hidden-xs hidden-sm"> <i class="icon icon--sm stack-interface stack-menu"></i> </a>
@@ -37,7 +39,7 @@
                         <div class="row">
                             <div class="col-lg-1 col-md-2 hidden-xs">
                                 <div class="bar__module">
-                                    <a href="/"> <img class="logo logo-dark" alt="logo" src="/img/logo-dark.png"> <img class="logo logo-light" alt="logo" src="/img/logo-light.png"> </a>
+                                    <a href="/"> <img class="logo logo-dark" alt="logo" src="/img/idkpay.png"> <img class="logo logo-light" alt="logo" src="/img/logo-light.png"> </a>
                                 </div>
                             </div>
                             <div class="col-lg-11 col-md-12 text-right text-left-xs text-left-sm">
@@ -48,70 +50,29 @@
                                                 Home
                                             </a>
                                         </li>
-
-                                        <li class="dropdown"> <span class="dropdown__trigger">
-                                        Dropdown Slim
-                                        </span>
-                                            <div class="dropdown__container">
-                                                <div class="container">
-                                                    <div class="row">
-                                                        <div class="dropdown__content col-lg-2">
-                                                            <ul class="menu-vertical">
-                                                                <li> <a href="#">Single Link</a> </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <li> 
+                                            <a href="/integration">
+                                                Integration
+                                            </a>
                                         </li>
+                                        <li> 
+                                            <a href="/pricing">
+                                                Pricing
+                                            </a>
+                                        </li>                                                                                
 
-                                        <li class="dropdown"> <span class="dropdown__trigger">
-                                        Dropdown Wide
-                                    </span>
-                                            <div class="dropdown__container">
-                                                <div class="container">
-                                                    <div class="row">
-                                                        <div class="dropdown__content row w-100">
-                                                            <div class="col-lg-3">
-                                                                <h5>Menu Title</h5>
-                                                                <ul class="menu-vertical">
-                                                                    <li> <a href="#">Single Link</a> </li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="col-lg-3">
-                                                                <h5>Menu Title</h5>
-                                                                <ul class="menu-vertical">
-                                                                    <li> <a href="#">Single Link</a> </li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="col-lg-3">
-                                                                <h5>Menu Title</h5>
-                                                                <ul class="menu-vertical">
-                                                                    <li> <a href="#">Single Link</a> </li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="col-lg-3">
-                                                                <h5>Menu Title</h5>
-                                                                <ul class="menu-vertical">
-                                                                    <li> <a href="#">Single Link</a> </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
 
                                 <%= if @conn.assigns.user_signed_in? do %>
                                 <li class="dropdown"> 
                                     <span class="dropdown__trigger">
-                                       Welcome <%= @conn.assigns.current_user.fullname %> <img src="<%= @conn.assigns.current_user.avatar %>" class="avatar" />
+                                       Welcome <%= @conn.assigns.current_user.fullname %> 
                                     </span>
                                             <div class="dropdown__container">
                                                 <div class="container">
                                                     <div class="row">
                                                         <div class="dropdown__content col-lg-2">
                                                             <ul class="menu-vertical">
+                                                                <li> <a href="/dashboard">My Account</a> </li>                                                            
                                                                 <li> <a href="/signout">Logout</a> </li>
                                                             </ul>
                                                         </div>
@@ -125,11 +86,11 @@
                                 </div>
                                 <%= if @conn.assigns.user_signed_in? == false do %>
                                 <div class="bar__module">
-                                    <a class="btn btn--sm type--uppercase" href="/login"> <span class="btn__text">
-                                    Login
-                                </span> </a>
                                     <a class="btn btn--sm btn--primary type--uppercase" href="/register"> <span class="btn__text">
                                     Register
+                                </span> </a>                                
+                                    <a class="btn btn--sm type--uppercase" href="/login"> <span class="btn__text">
+                                    Login
                                 </span> </a>
                                 </div>
                                 <% end %>
@@ -141,7 +102,7 @@
         </div>
         <div class="main-container"> 
 
-<%= render @view_module, @view_template, assigns %>                     
+        <%= render @view_module, @view_template, assigns %>                     
 
             <footer class="text-center-xs space--xs">
                 <div class="container">
@@ -149,22 +110,18 @@
                         <div class="col-sm-7">
                             <ul class="list-inline">
                                 <li> <a href="#"><span class="h6 type--uppercase">About</span></a> </li>
-                                <li> <a href="#"><span class="h6 type--uppercase">Careers</span></a> </li>
                                 <li> <a href="#"><span class="h6 type--uppercase">Support</span></a> </li>
                             </ul>
                         </div>
                         <div class="col-sm-5 text-right text-center-xs">
                             <ul class="social-list list-inline list--hover">
-                                <li><a href="#"><i class="socicon socicon-google icon icon--xs"></i></a></li>
                                 <li><a href="#"><i class="socicon socicon-twitter icon icon--xs"></i></a></li>
-                                <li><a href="#"><i class="socicon socicon-facebook icon icon--xs"></i></a></li>
-                                <li><a href="#"><i class="socicon socicon-instagram icon icon--xs"></i></a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-7"> <span class="type--fine-print">© <span class="update-year"></span> VirKill Inc.</span> <a class="type--fine-print" href="#">Privacy Policy</a> <a class="type--fine-print" href="#">Legal</a> </div>
-                        <div class="col-sm-5 text-right text-center-xs"> <a class="type--fine-print" href="#">support@virkill.com</a> </div>
+                        <div class="col-sm-7"> <span class="type--fine-print">© <span class="update-year"></span> IDKPay.</span> <a class="type--fine-print" href="#">Privacy Policy</a> <a class="type--fine-print" href="#">Legal</a> </div>
+                        <div class="col-sm-5 text-right text-center-xs"> <a class="type--fine-print" href="#">support@idkpay.com</a> </div>
                     </div>
                 </div>
             </footer>

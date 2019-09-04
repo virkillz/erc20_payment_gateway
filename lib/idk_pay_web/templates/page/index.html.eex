@@ -1,46 +1,56 @@
-            <section class="cover height-70 imagebg text-center slider slider--ken-burns" data-arrows="true" data-paging="true">
-                <ul class="slides">
-                    <li class="imagebg" data-overlay="4">
-                        <div class="background-image-holder background--top">
-                            <img alt="background" src="img/landing-2.jpg" />
+            
+<section class="cover unpad--bottom switchable switchable--switch bg--white text-center-xs pb-4">
+                <div class="container">
+                    <div class="row align-items-center justify-content-around">
+                        <div class="col-md-6 col-lg-5 mt-0">
+                            <h1>
+                                Receive IDK payment made easy
+                            </h1>
+                            <p class="lead">
+                                Now its easier than ever to receive payment in IDK stablecoin. Five minutes setup with a flat fee.
+                            </p>
+                            <a class="btn btn--primary type--uppercase" href="/register">
+                                <span class="btn__text">
+                                    create account
+                                </span>
+                            </a>
+                            <span class="block type--fine-print">
+                            </span>
                         </div>
-                        <div class="container pos-vertical-center">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h1>
-                                        Put your content here
-                                    </h1>
-                                    <a class="btn btn--primary type--uppercase" href="#">
-                                        <span class="btn__text">
-                                            More Info
-                                        </span>
-                                    </a>
-                                </div>
+                        <div class="col-md-6">
+                            <img alt="Image" src="/img/avatar-large-3.svg">
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section> 
+
+<section class="bg--secondary switchable switchable--switch feature-large">
+                <div class="container">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-md-6">
+                            <div class="boxed boxed--border">
+                                <span class="h1 text-dark">
+                                    <strong>1 IDK</strong> = 1000 IDR</span>
                             </div>
-                            <!--end of row-->
+
                         </div>
-                        <!--end of container-->
-                    </li>
-                    <li class="imagebg" data-overlay="4">
-                        <div class="background-image-holder">
-                            <img alt="background" src="img/landing-3.jpg" />
-                        </div>
-                        <div class="container pos-vertical-center">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h1>
-                                        Build a kickass product
-                                    </h1>
-                                    <a class="btn btn--primary type--uppercase" href="#">
-                                        <span class="btn__text">
-                                            Start
-                                        </span>
-                                    </a>
-                                </div>
+                        <div class="col-md-6 col-lg-5">
+                            <div class="switchable__text">
+                                <h2>What is IDK?</h2>
+                                <p class="lead">
+                                    IDK is an ERC20 stablecoin issued by the IDK Foundation Ltd., a BVI charitable trust company. The coin is backed 1:1000 to the Indonesian Rupiah (IDR).
+                                </p>
+                                <hr class="short">
+                                <p>
+                                    A stablecoin is a crypto-asset which maintains a stable and predetermined value, allowing it to function as a global medium of exchange, a unit of account, and a store of value with low volatility. There are many types of stablecoins available on public blockchains. Some are collateralized by dollars, other fiat, or crypto-currencies, while others are maintained by stabilizing algorithms.
+                                </p>
+                                <a href="https://idkfoundation.org/#whitepaper">Download the WhitePaper »</a>
                             </div>
-                            <!--end of row-->
                         </div>
-                        <!--end of container-->
-                    </li>
-                </ul>
-            </section>  
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>            
