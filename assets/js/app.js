@@ -7,6 +7,8 @@
 // in vendor, which are never wrapped in imports and
 // therefore are always executed.
 
+import css from '../css/app.css';
+
 // Import dependencies
 //
 // If you no longer want to use a dependency, remember
@@ -19,3 +21,8 @@ import "phoenix_html"
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
+
+import LiveSocket from "phoenix_live_view"
+
+let liveSocket = new LiveSocket("/live")
+liveSocket.connect()

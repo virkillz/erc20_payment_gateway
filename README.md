@@ -1,9 +1,12 @@
-# IdkPay
+# IDKPay
 
-![IdkPay](https://imgur.com/9bdb488a-58d0-45e3-9706-2948d0dc9b22)
+IDKPay is a ERC20 payment gateway configured for IDK. Goal: To be used by other ERC20 by changing 1 line in config.
 
-IdkPay is phoenix boilerplate to make web application. It comes with admin panel for administrator and front end auth for user.
 
+## TODO
+  [ ] separate user and admin using filter
+  [ ] add more column in migration user
+  [ ]
 
 
 

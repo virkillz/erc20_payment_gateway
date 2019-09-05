@@ -17,9 +17,12 @@ defmodule IdkPayWeb do
   and import those modules here.
   """
 
+  alias IdkPayWeb.Router.Helpers, as: Routes
+
   def controller do
     quote do
       use Phoenix.Controller, namespace: IdkPayWeb
+      import Phoenix.LiveView.Controller, only: [live_render: 3]
       import Plug.Conn
       import IdkPayWeb.Router.Helpers
       import IdkPayWeb.Gettext
@@ -28,8 +31,11 @@ defmodule IdkPayWeb do
 
   def view do
     quote do
-      use Phoenix.View, root: "lib/idk_pay_web/templates",
-                        namespace: IdkPayWeb
+      use Phoenix.View,
+        root: "lib/idk_pay_web/templates",
+        namespace: IdkPayWeb
+
+      import Phoenix.LiveView, only: [live_render: 2, live_render: 3, live_link: 1, live_link: 2]
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 2, view_module: 1]
@@ -48,6 +54,7 @@ defmodule IdkPayWeb do
       use Phoenix.Router
       import Plug.Conn
       import Phoenix.Controller
+      import Phoenix.LiveView, only: [live_render: 2, live_render: 3, live_link: 1, live_link: 2]
     end
   end
 

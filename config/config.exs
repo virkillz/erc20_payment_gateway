@@ -9,13 +9,19 @@ use Mix.Config
 config :idk_pay,
   ecto_repos: [IdkPay.Repo]
 
+config :idk_pay, IdkPayWeb.Endpoint,
+  live_view: [
+    signing_salt: "V+y5QndR9rFxVSWBkNLMbF5flRHjjqUp"
+  ]
+
+config :phoenix, :json_library, Jason
+
 # Configures the endpoint
 config :idk_pay, IdkPayWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "U6rb9AJCDoSe1LtiNJOsLGzUW8+S60TApNALK1lnjems+w+yx3pcMD2d4dskTxax",
   render_errors: [view: IdkPayWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: IdkPay.PubSub,
-           adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: IdkPay.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -33,4 +39,4 @@ config :idk_pay, IdkPay.Auth.AuthAccessPipeline,
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
-import_config "#{Mix.env}.exs"
+import_config "#{Mix.env()}.exs"

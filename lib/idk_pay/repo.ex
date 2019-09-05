@@ -1,5 +1,5 @@
 defmodule IdkPay.Repo do
-  use Ecto.Repo, otp_app: :idk_pay
+  use Ecto.Repo, otp_app: :idk_pay, adapter: Ecto.Adapters.Postgres
 
   @doc """
   Dynamically loads the repository url from the
