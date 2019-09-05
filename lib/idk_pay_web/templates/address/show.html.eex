@@ -43,13 +43,20 @@
 <div class="container">
                 <form class="form-horizontal" role="form">                                     
 
+                        <div class="form-group">
+                          <label class="col-sm-2 control-label">ID:</label>
+                          <div class="col-sm-10">
+                          <p class="form-control-static"><%= @address.id %></p>
+                          </div>
+                        </div>  
+
                     
                         <div class="form-group">
-                          <label class="col-sm-2 control-label">Addr:</label>
+                          <label class="col-sm-2 control-label">Address:</label>
                           <div class="col-sm-10">
                           <p class="form-control-static"><%= @address.addr %></p>
                           </div>
-                        </div>  
+                        </div>
                     
                         <div class="form-group">
                           <label class="col-sm-2 control-label">Remark:</label>
@@ -57,6 +64,22 @@
                           <p class="form-control-static"><%= @address.remark %></p>
                           </div>
                         </div>  
+
+                        <div class="form-group">
+                          <label class="col-sm-2 control-label">Is Used:</label>
+                          <div class="col-sm-10">
+                          <p class="form-control-static"><%= @address.is_used %></p>
+                          </div>
+                        </div>  
+
+                        <%= if  @address.is_used do %>
+                        <div class="form-group">
+                          <label class="col-sm-2 control-label">Is Used:</label>
+                          <div class="col-sm-10">
+                          <p class="form-control-static"><%= @address.invoice_id %></p>
+                          </div>
+                        </div>  
+                        <% end %>                                                
                     
 
                     <div class="form-group">

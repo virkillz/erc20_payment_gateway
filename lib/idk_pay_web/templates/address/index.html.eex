@@ -44,8 +44,10 @@
                             <table class="table">
                                 <thead class="bg-primary white">
                                 <tr>
-                                  <th>Addr</th>
-                                  <th>Remark</th>
+                                  <th>ID</th>                                
+                                  <th>Address</th>
+                                  <th>Is Used</th>  
+                                  <th>Invoice ID</th>                                                                    
                             
                                   <th></th>
                                 </tr>
@@ -53,8 +55,10 @@
                                 <tbody>
                                   <%= for address <- @addresses do %>
                                       <tr>
+                                        <td><%= address.id %></td>                                      
                                         <td><%= address.addr %></td>
-                                        <td><%= address.remark %></td>
+                                        <td><%= address.is_used %></td> 
+                                        <td><%= address.invoice_id %></td>                                                                               
                                   
                                         <td class="text-right">
                                           <span><%= link "Show", to: address_path(@conn, :show, address), class: "btn btn-default btn-xs" %></span>
