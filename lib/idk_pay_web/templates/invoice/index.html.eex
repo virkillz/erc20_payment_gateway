@@ -41,6 +41,7 @@
                             <table class="table">
                                 <thead class="bg-primary white">
                                 <tr>
+                                  <th>ID</th>
                                   <th>Token</th>
                                   <th>Amount</th>
                                   <th>Fee</th>
@@ -56,6 +57,7 @@
                                 <tbody>
                                   <%= for invoice <- @invoices do %>
                                       <tr>
+                                        <td><%= invoice.id %></td>
                                         <td><%= invoice.token %></td>
                                         <td><%= invoice.amount %></td>
                                         <td><%= invoice.fee %></td>
