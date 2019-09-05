@@ -137,19 +137,21 @@
       </div>
       <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-          <li class="active nav-item"><a href="/admin" up-target=".main" up-transition="move-right"><i class="ft-home"></i><span class="menu-title" data-i18n="">Dashboard</span></a>
+          <li class="active nav-item"><a href="/admin" up-target=".main" up-transition="move-right"><i class="ft-monitor"></i><span class="menu-title" data-i18n="">Dashboard</span></a>
           </li>  
-          <li class="nav-item"><a href="/admin/invoice" up-target=".main" up-transition="move-right"><i class="ft-home"></i><span class="menu-title" data-i18n="">Invoice</span></a>
+          <li class="nav-item"><a href="/admin/invoices" up-target=".main" up-transition="move-right"><i class="ft-credit-card"></i><span class="menu-title" data-i18n="">Invoice</span></a>
           </li> 
           <li class="nav-item"><a href="/admin/addresses" up-target=".main" up-transition="move-right"><i class="ft-home"></i><span class="menu-title" data-i18n="">Address</span></a>
           </li> 
-          <li class="nav-item"><a href="/admin/transactions" up-target=".main" up-transition="move-right"><i class="ft-home"></i><span class="menu-title" data-i18n="">Transaction</span></a>
-          </li>                                        
-          <li class=" nav-item"><a href="#"><i class="ft-layers"></i><span class="menu-title" data-i18n="">Portal management</span></a>
+          <li class="nav-item"><a href="/admin/transactions" up-target=".main" up-transition="move-right"><i class="ft-layers"></i><span class="menu-title" data-i18n="">Transaction</span></a>
+          </li> 
+          <li class="nav-item"><a href="/admin/user" up-target=".main" up-transition="move-right"><i class="ft-users"></i><span class="menu-title" data-i18n="">Users</span></a>
+          </li>                                                  
+          <li class=" nav-item"><a href="#"><i class="ft-layout"></i><span class="menu-title" data-i18n="">Portal management</span></a>
             <ul class="menu-content">
               <li><a class="menu-item" href="/admin/activity" up-target=".main" up-transition="move-right">Activity Monitor</a>
               </li>
-              <li><a class="menu-item" href="/admin/user" up-target=".main" up-transition="move-right">User management</a>
+              <li><a class="menu-item" href="/admin/manager" up-target=".main" up-transition="move-right">Admin Management</a>
             </ul>
           </li>
         </ul>

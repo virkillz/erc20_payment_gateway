@@ -23,6 +23,32 @@ defmodule IdkPay.Account do
   end
 
   @doc """
+  Returns the list of user with role "user".
+
+  """
+  def list_user_only do
+    query =
+      from(u in User,
+        where: u.role == "user"
+      )
+
+    Repo.all(query)
+  end
+
+  @doc """
+  Returns the list of user with role "user".
+
+  """
+  def list_administrator do
+    query =
+      from(u in User,
+        where: u.role == "administrator"
+      )
+
+    Repo.all(query)
+  end
+
+  @doc """
   Gets a single user.
 
   Raises `Ecto.NoResultsError` if the User does not exist.
@@ -50,28 +76,34 @@ defmodule IdkPay.Account do
       {:error, %Ecto.Changeset{}}
 
   """
-    def create_user(attrs \\ %{}) do
+  def create_user(attrs \\ %{}) do
     %User{}
     |> User.registration_changeset(attrs)
     |> Repo.insert()
   end
 
-    def create_user_frontend(attrs \\ %{}) do
+  def create_admin(attrs \\ %{}) do
+    %User{}
+    |> User.admin_changeset(attrs)
+    |> Repo.insert()
+  end
+
+  def create_user_frontend(attrs \\ %{}) do
     %User{}
     |> User.front_registration_changeset(attrs)
     |> Repo.insert()
   end
 
-
-
   def authenticate_user(username, plain_text_password) do
-    query = from u in User, where: u.username == ^username
+    query = from(u in User, where: u.username == ^username)
+
     Repo.one(query)
     |> check_password(plain_text_password)
   end
 
   def authenticate_user_front(email, plain_text_password) do
-    query = from u in User, where: u.email == ^email
+    query = from(u in User, where: u.email == ^email)
+
     Repo.one(query)
     |> check_password(plain_text_password)
   end
@@ -80,12 +112,12 @@ defmodule IdkPay.Account do
 
   defp check_password(user, plain_text_password) do
     IO.inspect(plain_text_password)
+
     case Bcrypt.checkpw(plain_text_password, user.password_hash) do
       true -> {:ok, user}
       false -> {:error, "Incorrect credential"}
     end
   end
-
 
   @doc """
   Updates a user.

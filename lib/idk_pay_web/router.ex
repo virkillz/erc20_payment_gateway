@@ -32,6 +32,7 @@ defmodule IdkPayWeb.Router do
     get("/locked", UserController, :locked)
     resources("/activity", ActivityController, only: [:index, :show, :delete])
     resources("/user", UserController)
+    resources("/manager", ManagerController)
     resources("/invoices", InvoiceController)
     resources("/addresses", AddressController)
     resources("/transactions", TransactionController)

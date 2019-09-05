@@ -6,7 +6,7 @@ IDKPay is a ERC20 payment gateway configured for IDK. Goal: To be used by other 
 ## TODO
   [ ] separate user and admin using filter
   [ ] add more column in migration user
-  [ ]
+  [ ] 
 
 
 
