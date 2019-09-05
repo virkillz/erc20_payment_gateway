@@ -7,7 +7,7 @@
             <div class="breadcrumbs-top float-md-right">
               <div class="breadcrumb-wrapper mr-1">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="/admin>Home</a>
+                  <li class="breadcrumb-item"><a href="/admin">Home</a>
                   </li>
                   <li class="breadcrumb-item"><a href="/admin/Transaction">Transaction List</a>
                   </li>                  
@@ -36,28 +36,23 @@
             </div>
             <div class="card-content collapse show">
                 <div class="card-body p-0 pb-0">
-<br>
+                    <br>
 
 
-<div class="container">
+                      <div class="container">
 
                             <table class="table">
                                 <thead class="bg-primary white">
                                 <tr>
+                                  <th>ID</th>                                
                                   <th>Block int</th>
                                   <th>Network</th>
-                                  <th>Token</th>
-                                  <th>Contract</th>
                                   <th>Hash</th>
                                   <th>From</th>
                                   <th>To</th>
-                                  <th>Block</th>
-                                  <th>Input</th>
                                   <th>Erc20 value</th>
                                   <th>Eth value</th>
-                                  <th>Gas</th>
-                                  <th>Gas price</th>
-                                  <th>Type</th>
+
                             
                                   <th></th>
                                 </tr>
@@ -65,21 +60,15 @@
                                 <tbody>
                                   <%= for transaction <- @transactions do %>
                                       <tr>
+                                        <td><%= transaction.id %></td>
                                         <td><%= transaction.block_int %></td>
                                         <td><%= transaction.network %></td>
-                                        <td><%= transaction.token %></td>
-                                        <td><%= transaction.contract %></td>
                                         <td><%= transaction.hash %></td>
                                         <td><%= transaction.from %></td>
                                         <td><%= transaction.to %></td>
-                                        <td><%= transaction.block %></td>
-                                        <td><%= transaction.input %></td>
                                         <td><%= transaction.erc20_value %></td>
                                         <td><%= transaction.eth_value %></td>
-                                        <td><%= transaction.gas %></td>
-                                        <td><%= transaction.gas_price %></td>
-                                        <td><%= transaction.type %></td>
-                                  
+
                                         <td class="text-right">
                                           <span><%= link "Show", to: transaction_path(@conn, :show, transaction), class: "btn btn-default btn-xs" %></span>
                                           <span><%= link "Edit", to: transaction_path(@conn, :edit, transaction), class: "btn btn-default btn-xs" %></span>
