@@ -19,19 +19,9 @@ defmodule IdkPay.Account.User do
     field(:is_verified, :boolean, default: false)
     field(:verification_code, :string)
     field(:recovery_code, :string)
-    field(:merchant_name, :string)
-    field(:mainnet_eth_address, :string)
-    field(:testnet_eth_address, :string)
-    field(:mainnet_key, :string)
-    field(:mainnet_secret, :string)
-    field(:testnet_key, :string)
-    field(:testnet_secret, :string)
-    field(:mainnet_webhook, :string)
-    field(:testnet_webhook, :string)
-    field(:mainnet_default_success_url, :string)
-    field(:testnet_default_success_url, :string)
-    field(:mainnet_default_error_url, :string)
-    field(:testnet_default_error_url, :string)
+    field(:business_name, :string)
+    field(:logo, :string)
+    field(:website, :string)
 
     timestamps()
   end
@@ -48,7 +38,10 @@ defmodule IdkPay.Account.User do
       :email,
       :mobile,
       :bio,
-      :location
+      :location,
+      :business_name,
+      :logo,
+      :website
     ])
     |> validate_required([:fullname, :username, :avatar])
   end
@@ -57,22 +50,24 @@ defmodule IdkPay.Account.User do
     user
     |> cast(attrs, [
       :fullname,
+      :username,
       :avatar,
       :role,
       :is_active,
-      :username,
-      :password,
-      :repassword,
       :email,
       :mobile,
       :bio,
-      :location
+      :location,
+      :business_name,
+      :logo,
+      :website
     ])
     |> validate_required([:fullname, :username, :password])
     |> validate_length(:username, min: 3, max: 16)
     |> validate_length(:password, min: 5)
     |> validate_password
     |> unique_constraint(:username)
+    |> unique_constraint(:email)
     |> put_password_hash()
     |> put_role("user")
   end
@@ -85,6 +80,7 @@ defmodule IdkPay.Account.User do
     |> validate_length(:password, min: 5)
     |> validate_password
     |> unique_constraint(:username)
+    |> unique_constraint(:email)
     |> put_password_hash()
     |> put_role("administrator")
     |> put_default_avatar
