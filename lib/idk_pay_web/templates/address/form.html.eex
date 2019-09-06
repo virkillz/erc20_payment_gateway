@@ -20,6 +20,18 @@
     <%= error_tag f, :privkey %>
   </div>
 
+  <div class="form-group">
+    <%= label f, :network, class: "control-label" %>
+    <%= select f, :network, ["Testnet", "Mainnet"],class: "form-control" %>
+    <%= error_tag f, :network %>
+  </div>  
+
+  <div class="form-group">
+    <%= label f, :is_used, class: "control-label" %>
+    <%= checkbox f, :is_used, class: "checkbox" %>
+    <%= error_tag f, :is_used %>
+  </div>  
+
 
   <div class="form-group">
     <%= label f, :remark, class: "control-label" %>

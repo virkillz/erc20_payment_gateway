@@ -46,8 +46,8 @@
                                 <tr>
                                   <th>ID</th>                                
                                   <th>Address</th>
-                                  <th>Is Used</th>  
-                                  <th>Invoice ID</th>                                                                    
+                                  <th>Network</th>                                  
+                                  <th>Is Used</th>                                                                  
                             
                                   <th></th>
                                 </tr>
@@ -57,8 +57,8 @@
                                       <tr>
                                         <td><%= address.id %></td>                                      
                                         <td><%= address.addr %></td>
-                                        <td><%= address.is_used %></td> 
-                                        <td><%= address.invoice_id %></td>                                                                               
+                                        <td><%= address.network %></td>                                        
+                                        <td><%= address.is_used %></td>                                                                             
                                   
                                         <td class="text-right">
                                           <span><%= link "Show", to: address_path(@conn, :show, address), class: "btn btn-default btn-xs" %></span>

@@ -22,6 +22,24 @@ defmodule IdkPay.Transaction do
   end
 
   @doc """
+  Returns the list of invoices by user ID.
+
+  ## Examples
+
+      iex> list_invoices()
+      [%Invoice{}, ...]
+
+  """
+  def list_invoices_by(:user_id, user_id) do
+    query =
+      from(i in Invoice,
+        where: i.user_id == ^user_id
+      )
+
+    Repo.all(query)
+  end
+
+  @doc """
   Gets a single invoice.
 
   Raises `Ecto.NoResultsError` if the Invoice does not exist.

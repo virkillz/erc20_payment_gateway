@@ -32,7 +32,8 @@ defmodule IdkPay.Transaction.Invoice do
       :expiry,
       :eth_address,
       :is_settled,
-      :purpose
+      :purpose,
+      :user_id
     ])
     |> validate_required([
       :token,
@@ -42,5 +43,12 @@ defmodule IdkPay.Transaction.Invoice do
       :expiry_date,
       :purpose
     ])
+    |> add_code
+  end
+
+  def add_code(changeset) do
+    change(changeset, %{
+      token: :crypto.strong_rand_bytes(18) |> Base.url_encode64() |> binary_part(0, 18)
+    })
   end
 end

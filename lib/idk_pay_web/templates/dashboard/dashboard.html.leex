@@ -32,6 +32,9 @@
                         </div>
                         <div class="col-lg-8">
                             <div class="boxed boxed--lg boxed--border">
+
+                            <!--profile-->
+
                                 <div class="account-tab <%= if @active_tab != "profile", do: "hidden" %>">
                                     <h4>Profile</h4>
                                     
@@ -45,7 +48,7 @@
                                     </div>
                                  
 
-                                    <%= f = form_for @changeset, "#", [phx_submit: :save_profile] %>
+                                    <%= f = form_for @user_changeset, "#", [phx_submit: :save_profile] %>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label>Real Name:</label>
@@ -92,9 +95,14 @@
                                         </div>
                                     </form>
                                 </div>
-                                <div id="account-profile" class="account-tab <%= if @active_tab != "add_mainnet_credential", do: "hidden" %>">
-                                    <h4>Add New Mainnet Credential</h4>
-                                    
+
+                                <!--/profile-->
+
+                                <!--add-new-credential-->
+                                
+                                <div class="account-tab <%= if @active_tab != "add_credential", do: "hidden" %>">
+                                    <h4>Add New <%= @credential_mode %> Credential</h4>
+
                                     <div class="alert bg--success <%= if @success_alert == "", do: "alert--dismissed" %>">
                                         <div class="alert__body">
                                             <span><%= @success_alert %></span>
@@ -103,119 +111,147 @@
                                             ×
                                         </div>
                                     </div>
-                                 
+
+                                    <div class="alert bg--error <%= if @error_alert == "", do: "alert--dismissed" %>">
+                                        <div class="alert__body">
+                                            <span><%= @error_alert %></span>
+                                        </div>
+                                        <div class="alert__close">
+                                            ×
+                                        </div>
+                                    </div>                                    
 
                                     <%= f = form_for @credential_changeset, "#", [phx_submit: :add_credential] %>
                                         <div class="row">
+
                                             <div class="col-md-12">
-                                                <label>Your Ethereum Wallet Address:</label>
-                                                <%= text_input f, :eth_address %>
-                                                <%= error_tag f, :eth_address %>                                                
+                                                <label>Select Network:</label><br>
+                                                <div class="btn btn-group">
+                                                    <div phx-click="change_network" phx-value-network="Testnet" class="btn <%= if @credential_mode == "Testnet", do: "btn--primary", else: "btn--secondary" %> type--uppercase">
+                                                        <span class="btn__text">
+                                                            Testnet
+                                                        </span>
+                                                    </div>
+                                                    <div phx-click="change_network" phx-value-network="Mainnet" class="btn <%= if @credential_mode == "Mainnet", do: "btn--primary", else: "btn--secondary" %> type--uppercase">
+                                                        <span class="btn__text">
+                                                            Mainnet
+                                                        </span>
+                                                    </div>                                    
+                                                </div>                                              
                                             </div> 
+
+                                            <div class="col-md-12">
+                                                <label>Your <%= @credential_mode %> Ethereum Wallet Address:</label>
+                                                <%= text_input f, :eth_address %>
+                                                <div class="color--error"><%= error_tag f, :eth_address %></div>                                               
+                                            </div> 
+
+
                                             <div class="col-md-12">
                                                 <label>Success URL redirect:</label>
                                                 <%= text_input f, :success_url_redirect %>
-                                                <%= error_tag f, :success_url_redirect %>                                                
+                                                <div class="color--error"><%= error_tag f, :success_url_redirect %></div>                                              
                                             </div> 
+
                                             <div class="col-md-12">
                                                 <label>Webhook URL:</label>
                                                 <%= text_input f, :webhook_url %>
-                                                <%= error_tag f, :webhook_url %>                                                
+                                                <div class="color--error"><%= error_tag f, :webhook_url %></div>                                               
                                             </div>                                                                                                                                   
 
-                                            <div class="col-lg-3 col-md-4">
-                                                <button type="submit" class="btn btn--primary type--uppercase" phx-disable-with="Creating...">Create Credential</button>
+                                            <div class="col-lg-6 col-md-6">
+                                                <button type="submit" class="btn btn--primary type--uppercase w-full" phx-disable-with="Creating...">Create <%= @credential_mode %> Credential</button>
                                             </div>
+
+                                            <div class="col-lg-6 col-md-6">
+                                                <button class="btn type--uppercase px-4" phx-click="switch_tab" phx-value-tab="my_credential">Cancel</button>
+                                            </div>                                            
+
                                         </div>
                                     </form>
-                                </div>                                
+                                </div>   
+
+                                <!--/add-new-credential-->    
+
+                                <!--my-invoice-->
+
                                 <div class="<%= if @active_tab != "my_invoice", do: "hidden" %> account-tab">
-                                    <h4>Email Notifications</h4>
-                                    <p>Select the frequency with which you'd like to recieve product summary emails:</p>
+                                    <h4>My Invoices</h4>
+                                    <p> </p>
                                     <form>
-                                        <div class="boxed bg--secondary boxed--border row">
-                                            <div class="col-4 text-center">
-                                                <div class="input-radio">
-                                                    <span>Never</span>
-                                                    <input type="radio" name="frequency" value="never" class="validate-required" id="input-assigned-1">
-                                                    <label for="input-assigned-1"></label>
-                                                </div>
-                                            </div>
-                                            <div class="col-4 text-center">
-                                                <div class="input-radio checked">
-                                                    <span>Weekly</span>
-                                                    <input type="radio" name="frequency" value="weekly" class="validate-required" id="input-assigned-2">
-                                                    <label for="input-assigned-2"></label>
-                                                </div>
-                                            </div>
-                                            <div class="col-4 text-center">
-                                                <div class="input-radio">
-                                                    <span>Monthly</span>
-                                                    <input type="radio" name="frequency" value="monthly" class="validate-required" id="input-assigned-3">
-                                                    <label for="input-assigned-3"></label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-4 col-md-5">
-                                                <button type="submit" class="btn btn--primary type--uppercase">Save Preferences</button>
-                                            </div>
-                                        </div>
-                                        <!--end of row-->
+
+                                    <table class="border--round bg--secondary">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Nonce</th>
+                                                <th>Amount</th>
+                                                <th>Payment status</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                            <%= for invoice <- @invoices do %>
+                                                <td><%= invoice.id %></td>
+                                                <td><%= invoice.token %></td>
+                                                <td><%= invoice.token %></td>
+                                                <td><%= invoice.token %></td>                                                                                                
+                                                <td class="pull-right"><button class="btn px-4">Detail</button></td>
+                                            </tr>
+                                            <% end %>
+                                        </tbody>
+                                    </table>  
+
                                     </form>
                                 </div>
+
+                                <!--/my-invoice-->
+
+                                <!--my-credentials-->
+
                                 <div class="<%= if @active_tab != "my_credential", do: "hidden" %> account-tab">
                                     <h4>My Credentials</h4>
-                                    <div class="boxed boxed--border bg--secondary">
-                                        <h5>Testnet</h5>
-                                        <hr>
-                                      
-                                            <ul>
-                                                <li class="row">
-                                                    <div class="col-md-6">
-                                                        <p>
-                                                            <span>0x73289hn2348n29432n29349n..
-                                                            </span>
-                                                        </p>
-                                                    </div>
-                                                    <div class="col-md-3 text-right text-left-xs">
-                                                        <button type="submit" class="btn bg--error">Remove</button>
-                                                    </div>
-                                                    <div class="col-md-3 text-right text-left-xs">
-                                                        <button type="submit" class="btn">Edit</button>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                            <hr>
-                                            <button phx-click="switch_tab" phx-value-tab="add_mainnet_credential" class="btn w-100">Add New Testnet Credentials</button>
-                                       
+
+                                    <div class="alert bg--success <%= if @success_alert == "", do: "alert--dismissed" %>">
+                                        <div class="alert__body">
+                                            <span><%= @success_alert %></span>
+                                        </div>
+                                        <div class="alert__close">
+                                            ×
+                                        </div>
                                     </div>
-                                    <div class="boxed boxed--border bg--secondary">
-                                        <h5>Mainnet</h5>
-                                        <hr>
-                                        <form>
-                                            <ul>
-                                                <li class="row">
-                                                    <div class="col-md-6">
-                                                        <p>
-                                                            <span>0x73289hn2348n29432n29349n..
-                                                            </span>
-                                                        </p>                                                        
-                                                    </div>
-                                                    <div class="col-md-3 text-right text-left-xs">
-                                                        <button type="submit" class="btn bg--error">Remove</button>
-                                                    </div>
-                                                    <div class="col-md-3 text-right text-left-xs">
-                                                        <button type="submit" class="btn">Show</button>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                            <hr>
-                                            <button type="submit" class="btn w-100">Add New Mainnet Credentials</button>
-                                        </form>
-                                    </div>                                    
+
+                                   
+
+                                    <table class="border--round bg--secondary">
+                                        <thead>
+                                            <tr>
+                                                <th>Network</th>
+                                                <th>ETH Address</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                            <%= for credential <- @credentials do %>
+                                                <td><span class="btn color--white btn--sm <%= if credential.network == "Mainnet", do: "btn--primary", else: "btn--primary-1" %>"><%= credential.network %></span></td>
+                                                <td><%= credential.eth_address %></td>
+                                                <td class="pull-right"><button class="btn px-4">Detail</button></td>
+                                            </tr>
+                                            <% end %>
+                                        </tbody>
+                                    </table>                                        
+                                            <button phx-click="switch_tab" phx-value-tab="add_credential" class="btn w-100">Add New Credentials</button>
+                                       
+                                                                
                                 </div>
-                                <div id="account-password" class="<%= if @active_tab != "change_password", do: "hidden" %> account-tab">
+
+                                <!--/my-credentials-->
+
+                                <!--change-password-->
+
+                                <div class="<%= if @active_tab != "change_password", do: "hidden" %> account-tab">
                                     <h4>Password</h4>
                                     <p>Passwords must be at least 6 characters in length.</p>
                                     <form>
@@ -238,13 +274,19 @@
                                         </div>
                                     </form>
                                 </div>
-                                <div id="account-delete" class="<%= if @active_tab != "delete_account", do: "hidden" %> account-tab">
+
+                                 <!--/change-password-->
+
+                                <!--account-delete-->
+                                <div class="<%= if @active_tab != "delete_account", do: "hidden" %> account-tab">
                                     <h4>Delete Account</h4>
                                     <p>Permanently remove your account using the button below. Warning, this action is permanent.</p>
                                     <form>
-                                        <button type="submit" class="btn bg--error type--uppercase">Delete Account</button>
+                                        <button type="submit" class="btn bg--error type--uppercase">Delete Account</button>                                     
                                     </form>
                                 </div>
+                                <!--/account-delete-->
+
                             </div>
                         </div>
                     </div>

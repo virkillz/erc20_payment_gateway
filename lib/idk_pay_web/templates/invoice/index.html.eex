@@ -43,13 +43,12 @@
                                 <tr>
                                   <th>ID</th>
                                   <th>Token</th>
+                                  <th>ETH Address</th>                                  
+                                  <th>User ID</th>                                  
                                   <th>Amount</th>
-                                  <th>Fee</th>
-                                  <th>Total</th>
                                   <th>Payment status</th>
                                   <th>Invoice status</th>
                                   <th>Expiry date</th>
-                                  <th>Purpose</th>
                             
                                   <th></th>
                                 </tr>
@@ -59,13 +58,12 @@
                                       <tr>
                                         <td><%= invoice.id %></td>
                                         <td><%= invoice.token %></td>
-                                        <td><%= invoice.amount %></td>
-                                        <td><%= invoice.fee %></td>
-                                        <td><%= invoice.total %></td>
+                                        <td><%= invoice.eth_address %></td>                                        
+                                        <td><%= invoice.user_id %></td>
+                                        <td><%= invoice.amount %></td>                                        
                                         <td><%= invoice.payment_status %></td>
                                         <td><%= invoice.invoice_status %></td>
                                         <td><%= invoice.expiry_date %></td>
-                                        <td><%= invoice.purpose %></td>
                                   
                                         <td class="text-right">
                                           <span><%= link "Show", to: invoice_path(@conn, :show, invoice), class: "btn btn-default btn-xs" %></span>

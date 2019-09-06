@@ -6,7 +6,7 @@ defmodule IdkPay.Ethereum.Address do
     field(:addr, :string)
     field(:remark, :string)
     field(:invoice_id, :id)
-    field(:is_used, :boolean)
+    field(:is_used, :boolean, default: false)
     field(:network, :string)
     field(:privkey, :string)
 
@@ -16,7 +16,7 @@ defmodule IdkPay.Ethereum.Address do
   @doc false
   def changeset(address, attrs) do
     address
-    |> cast(attrs, [:addr, :remark])
-    |> validate_required([:addr, :remark])
+    |> cast(attrs, [:addr, :remark, :network, :privkey, :is_used, :invoice_id])
+    |> validate_required([:addr])
   end
 end
