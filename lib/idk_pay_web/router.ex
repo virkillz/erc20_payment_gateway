@@ -18,7 +18,7 @@ defmodule IdkPayWeb.Router do
   end
 
   pipeline :admin_layout do
-    plug(:put_layout, {InexWeb.LayoutView, "admin.html"})
+    plug(:put_layout, {IdkPayWeb.LayoutView, "admin.html"})
   end
 
   pipeline :auth do
