@@ -6,10 +6,10 @@
             <div class="card border-grey border-lighten-3 px-1 py-1 m-0">
                 <div class="card-header border-0">
                     <div class="text-center mb-1">
-                            <img src="/img/idk_pay-logo-color-small.png" alt="branding logo">
+                            <img src="/img/idkpay.png" alt="branding logo" style="max-height: 80px;">
                     </div>
                     <div class="font-large-1  text-center">                       
-                        IdkPay Admin Login
+                        Admin Login
                     </div>
                 </div>
                 <div class="card-content">
@@ -20,13 +20,13 @@
 
                     <%= form_for @changeset, "/admin/login", [class: "form-horizontal"], fn f -> %> 
                             <fieldset class="form-group position-relative has-icon-left">
-                                <input type="text" name="username" class="form-control round" id="user-name" placeholder="Your Username" required>
+                                <input type="text" name="username" class="form-control" id="user-name" placeholder="Your Username" required>
                                 <div class="form-control-position">
                                     <i class="ft-user"></i>
                                 </div>
                             </fieldset>
                             <fieldset class="form-group position-relative has-icon-left">
-                                <input type="password" name="password" class="form-control round" id="user-password" placeholder="Enter Password" required>
+                                <input type="password" name="password" class="form-control" id="user-password" placeholder="Enter Password" required>
                                 <div class="form-control-position">
                                     <i class="ft-lock"></i>
                                 </div>
@@ -37,7 +37,7 @@
                                 </div>
                             </div>                           
                             <div class="form-group text-center">
-                                <button type="submit" class="btn round btn-block btn-glow btn-bg-gradient-x-purple-blue col-12 mr-1 mb-1">Login</button>    
+                                <button type="submit" class="btn btn-block btn-glow btn-danger col-12 mr-1 mb-1">Login</button>    
                             </div>
                            
                         <% end %>

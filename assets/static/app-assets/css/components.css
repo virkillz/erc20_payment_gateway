@@ -107,7 +107,7 @@ html body.boxed-layout
 }
 html body.bg-full-screen-image
 {
-    background: url(../../app-assets/images/backgrounds/bg-18.jpg) no-repeat center center fixed;
+    background: url(../../img/bg.svg) no-repeat center center fixed;
     -webkit-background-size: cover;
             background-size: cover;
 }
