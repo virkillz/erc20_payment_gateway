@@ -14,6 +14,11 @@ defmodule IdkPayWeb.PageController do
     |> render("dashboard.html", layout: {IdkPayWeb.LayoutView, "fe.html"})
   end
 
+  def payment(conn, _params) do
+    conn
+    |> render("payment.html", layout: {IdkPayWeb.LayoutView, "blank.html"})
+  end
+
   def integration(conn, _params) do
     conn
     |> render("integration.html", layout: {IdkPayWeb.LayoutView, "fe.html"})
