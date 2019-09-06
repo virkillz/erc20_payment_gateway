@@ -4,9 +4,11 @@ IDKPay is a ERC20 payment gateway configured for IDK. Goal: To be used by other 
 
 
 ## TODO
-  [ ] separate user and admin using filter
-  [ ] add more column in migration user
-  [ ] 
+  [ ] credential detail
+  [ ] invoice detail
+  [ ] payment page
+  [ ] wire up change password
+  [ ] wire up delete account
 
 
 
