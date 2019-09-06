@@ -5,6 +5,6 @@
 /* Space out content a bit */
 
 /* Phoenix flash messages */
-.alert:empty { display: none; }
+.alert:empty { display: none !important; }
 
 /* Custom page header */

@@ -1,0 +1,254 @@
+<section class="bg--secondary space--sm">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="boxed boxed--lg boxed--border">
+                                <div class="text-block text-center">
+                                    <img alt="avatar" src="/img/default-avatar.png" class="image--sm">
+                                    <span class="h5"><%= @user.fullname %></span>
+                                    <span><%= @user.business_name %></span>
+                                </div>
+                                <hr>
+                                <div class="text-block">
+                                    <ul class="menu-vertical">
+                                        <li>
+                                            <a href="#" phx-click="switch_tab" phx-value-tab="profile">Profile</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" phx-click="switch_tab" phx-value-tab="my_invoice">My Invoice</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" phx-click="switch_tab" phx-value-tab="my_credential">My Credential</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" phx-click="switch_tab" phx-value-tab="change_password">Password</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" phx-click="switch_tab" phx-value-tab="delete_account">Delete Account</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="boxed boxed--lg boxed--border">
+                                <div class="account-tab <%= if @active_tab != "profile", do: "hidden" %>">
+                                    <h4>Profile</h4>
+                                    
+                                    <div class="alert bg--success <%= if @success_alert == "", do: "alert--dismissed" %>">
+                                        <div class="alert__body">
+                                            <span><%= @success_alert %></span>
+                                        </div>
+                                        <div class="alert__close">
+                                            ×
+                                        </div>
+                                    </div>
+                                 
+
+                                    <%= f = form_for @changeset, "#", [phx_submit: :save_profile] %>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Real Name:</label>
+                                                <%= text_input f, :fullname %>
+                                                <%= error_tag f, :fullname %>                                                
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>Business Name:</label>
+                                                <%= text_input f, :business_name %>
+                                                <%= error_tag f, :business_name %>   
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label>Username:</label>
+                                                <%= text_input f, :username, [disabled: true] %>
+                                            </div>                                            
+                                            <div class="col-md-12">
+                                                <label>Email Address:</label>
+                                                <%= text_input f, :email, [disabled: true] %>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label>Location:</label>
+                                                <%= text_input f, :location %>
+                                                <%= error_tag f, :location %> 
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label>Website:</label>
+                                                <%= text_input f, :website %>
+                                                <%= error_tag f, :website %> 
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label>Business Description:</label>
+                                                <textarea rows="4" name="bio"><%= @user.bio %></textarea>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="input-checkbox input-checkbox--switch">
+                                                    <input type="checkbox" name="public-profile" id="input-assigned-0">
+                                                    <label for="input-assigned-0"></label>
+                                                </div>
+                                                <span>Subscribe my email to IDKPay newsletter</span>
+                                            </div>
+                                            <div class="col-lg-3 col-md-4">
+                                                <button type="submit" class="btn btn--primary type--uppercase" phx-disable-with="Saving...">Save Profile</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div id="account-profile" class="account-tab <%= if @active_tab != "add_mainnet_credential", do: "hidden" %>">
+                                    <h4>Add New Mainnet Credential</h4>
+                                    
+                                    <div class="alert bg--success <%= if @success_alert == "", do: "alert--dismissed" %>">
+                                        <div class="alert__body">
+                                            <span><%= @success_alert %></span>
+                                        </div>
+                                        <div class="alert__close">
+                                            ×
+                                        </div>
+                                    </div>
+                                 
+
+                                    <%= f = form_for @credential_changeset, "#", [phx_submit: :add_credential] %>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label>Your Ethereum Wallet Address:</label>
+                                                <%= text_input f, :eth_address %>
+                                                <%= error_tag f, :eth_address %>                                                
+                                            </div> 
+                                            <div class="col-md-12">
+                                                <label>Success URL redirect:</label>
+                                                <%= text_input f, :success_url_redirect %>
+                                                <%= error_tag f, :success_url_redirect %>                                                
+                                            </div> 
+                                            <div class="col-md-12">
+                                                <label>Webhook URL:</label>
+                                                <%= text_input f, :webhook_url %>
+                                                <%= error_tag f, :webhook_url %>                                                
+                                            </div>                                                                                                                                   
+
+                                            <div class="col-lg-3 col-md-4">
+                                                <button type="submit" class="btn btn--primary type--uppercase" phx-disable-with="Creating...">Create Credential</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>                                
+                                <div class="<%= if @active_tab != "my_invoice", do: "hidden" %> account-tab">
+                                    <h4>Email Notifications</h4>
+                                    <p>Select the frequency with which you'd like to recieve product summary emails:</p>
+                                    <form>
+                                        <div class="boxed bg--secondary boxed--border row">
+                                            <div class="col-4 text-center">
+                                                <div class="input-radio">
+                                                    <span>Never</span>
+                                                    <input type="radio" name="frequency" value="never" class="validate-required" id="input-assigned-1">
+                                                    <label for="input-assigned-1"></label>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 text-center">
+                                                <div class="input-radio checked">
+                                                    <span>Weekly</span>
+                                                    <input type="radio" name="frequency" value="weekly" class="validate-required" id="input-assigned-2">
+                                                    <label for="input-assigned-2"></label>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 text-center">
+                                                <div class="input-radio">
+                                                    <span>Monthly</span>
+                                                    <input type="radio" name="frequency" value="monthly" class="validate-required" id="input-assigned-3">
+                                                    <label for="input-assigned-3"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-5">
+                                                <button type="submit" class="btn btn--primary type--uppercase">Save Preferences</button>
+                                            </div>
+                                        </div>
+                                        <!--end of row-->
+                                    </form>
+                                </div>
+                                <div class="<%= if @active_tab != "my_credential", do: "hidden" %> account-tab">
+                                    <h4>My Credentials</h4>
+                                    <div class="boxed boxed--border bg--secondary">
+                                        <h5>Testnet</h5>
+                                        <hr>
+                                      
+                                            <ul>
+                                                <li class="row">
+                                                    <div class="col-md-6">
+                                                        <p>
+                                                            <span>0x73289hn2348n29432n29349n..
+                                                            </span>
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-md-3 text-right text-left-xs">
+                                                        <button type="submit" class="btn bg--error">Remove</button>
+                                                    </div>
+                                                    <div class="col-md-3 text-right text-left-xs">
+                                                        <button type="submit" class="btn">Edit</button>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <hr>
+                                            <button phx-click="switch_tab" phx-value-tab="add_mainnet_credential" class="btn w-100">Add New Testnet Credentials</button>
+                                       
+                                    </div>
+                                    <div class="boxed boxed--border bg--secondary">
+                                        <h5>Mainnet</h5>
+                                        <hr>
+                                        <form>
+                                            <ul>
+                                                <li class="row">
+                                                    <div class="col-md-6">
+                                                        <p>
+                                                            <span>0x73289hn2348n29432n29349n..
+                                                            </span>
+                                                        </p>                                                        
+                                                    </div>
+                                                    <div class="col-md-3 text-right text-left-xs">
+                                                        <button type="submit" class="btn bg--error">Remove</button>
+                                                    </div>
+                                                    <div class="col-md-3 text-right text-left-xs">
+                                                        <button type="submit" class="btn">Show</button>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <hr>
+                                            <button type="submit" class="btn w-100">Add New Mainnet Credentials</button>
+                                        </form>
+                                    </div>                                    
+                                </div>
+                                <div id="account-password" class="<%= if @active_tab != "change_password", do: "hidden" %> account-tab">
+                                    <h4>Password</h4>
+                                    <p>Passwords must be at least 6 characters in length.</p>
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <label>Old Password:</label>
+                                                <input type="password" name="old-password">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>New Password:</label>
+                                                <input type="password" name="new-password">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>Retype New Password:</label>
+                                                <input type="password" name="new-password-confirm">
+                                            </div>
+                                            <div class="col-lg-3 col-md-4">
+                                                <button type="submit" class="btn btn--primary type--uppercase">Save Password</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div id="account-delete" class="<%= if @active_tab != "delete_account", do: "hidden" %> account-tab">
+                                    <h4>Delete Account</h4>
+                                    <p>Permanently remove your account using the button below. Warning, this action is permanent.</p>
+                                    <form>
+                                        <button type="submit" class="btn bg--error type--uppercase">Delete Account</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>

@@ -17,6 +17,10 @@ defmodule IdkPayWeb.Router do
     plug(:accepts, ["json"])
   end
 
+  pipeline :admin_layout do
+    plug(:put_layout, {InexWeb.LayoutView, "admin.html"})
+  end
+
   pipeline :auth do
     plug(IdkPay.Auth.AuthAccessPipeline)
   end
@@ -25,11 +29,12 @@ defmodule IdkPayWeb.Router do
 
   scope "/admin", IdkPayWeb do
     # Use the default browser stack
-    pipe_through([:browser, :auth])
+    pipe_through([:browser, :auth, :admin_layout])
 
     get("/", UserController, :dashboard)
     get("/profile", UserController, :profile)
     get("/locked", UserController, :locked)
+    resources("/credentials", CredentialController)
     resources("/activity", ActivityController, only: [:index, :show, :delete])
     resources("/user", UserController)
     resources("/manager", ManagerController)
@@ -42,7 +47,9 @@ defmodule IdkPayWeb.Router do
   scope "/", IdkPayWeb do
     pipe_through(:browser)
 
-    get("/dashboard", PageController, :dashboard)
+    # get("/dashboard", PageController, :dashboard)
+
+    live("/dashboard", DashboardLive, session: [:current_user_id])
 
     get("/", PageController, :index)
     get("/login", PageController, :login)
