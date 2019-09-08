@@ -47,12 +47,11 @@ defmodule IdkPayWeb.Router do
   scope "/", IdkPayWeb do
     pipe_through(:browser)
 
-    # get("/dashboard", PageController, :dashboard)
-
     live("/dashboard", DashboardLive, session: [:current_user_id])
+    # get("/payment/:id", PageController, :payment)
+    # live("payment/:id")
 
     get("/", PageController, :index)
-    get("/payment/:id", PageController, :payment)
     get("/login", PageController, :login)
     get("/lgn", PageController, :lgn)
     get("/integration", PageController, :integration)

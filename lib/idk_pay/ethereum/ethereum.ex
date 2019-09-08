@@ -56,6 +56,36 @@ defmodule IdkPay.Ethereum do
   end
 
   @doc """
+  Get unused address.
+  """
+  def get_unused_address() do
+    query =
+      from(a in Address,
+        where: a.is_used == false,
+        limit: 1,
+        select: a.addr
+      )
+
+    case Repo.one(query) do
+      nil -> {:error, "All address are in use."}
+      addr -> {:ok, addr}
+    end
+  end
+
+  @doc """
+  Get address by ethereum address
+  """
+  def get_address_by(:eth_address, addr) do
+    query =
+      from(a in Address,
+        where: a.addr == ^addr,
+        limit: 1
+      )
+
+    Repo.one!(query)
+  end
+
+  @doc """
   Updates a address.
 
   ## Examples

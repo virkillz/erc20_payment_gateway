@@ -12,7 +12,7 @@ defmodule IdkPayWeb.InvoiceController do
 
   def new(conn, _params) do
     changeset = Transaction.change_invoice(%Invoice{})
-    render(conn, "new.html", changeset: changeset, users: get_users)
+    render(conn, "new.html", changeset: changeset, users: get_users())
   end
 
   def get_users do
@@ -21,13 +21,13 @@ defmodule IdkPayWeb.InvoiceController do
 
   def create(conn, %{"invoice" => invoice_params}) do
     case Transaction.create_invoice(invoice_params) do
-      {:ok, invoice} ->
+      {:ok, %{invoice: invoice}} ->
         conn
         |> put_flash(:info, "Invoice created successfully.")
         |> redirect(to: invoice_path(conn, :show, invoice))
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "new.html", changeset: changeset, users: get_users)
+        render(conn, "new.html", changeset: changeset, users: get_users())
     end
   end
 
@@ -39,7 +39,7 @@ defmodule IdkPayWeb.InvoiceController do
   def edit(conn, %{"id" => id}) do
     invoice = Transaction.get_invoice!(id)
     changeset = Transaction.change_invoice(invoice)
-    render(conn, "edit.html", invoice: invoice, changeset: changeset, users: get_users)
+    render(conn, "edit.html", invoice: invoice, changeset: changeset, users: get_users())
   end
 
   def update(conn, %{"id" => id, "invoice" => invoice_params}) do

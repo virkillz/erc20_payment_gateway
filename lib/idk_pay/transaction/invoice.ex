@@ -16,6 +16,8 @@ defmodule IdkPay.Transaction.Invoice do
     field(:expiry, :string)
     field(:expiry_date, :naive_datetime)
     field(:success_redirect, :string)
+    field(:inv_id, :string)
+    field(:request_id, :string)
 
     timestamps()
   end
@@ -33,22 +35,29 @@ defmodule IdkPay.Transaction.Invoice do
       :eth_address,
       :is_settled,
       :purpose,
-      :user_id
+      :user_id,
+      :inv_id,
+      :request_id
     ])
     |> validate_required([
-      :token,
       :amount,
       :payment_status,
       :invoice_status,
+      :request_id,
       :expiry_date,
       :purpose
     ])
+    |> unique_constraint(:request_id, name: :invoices_request_id_user_id_index)
     |> add_code
   end
 
   def add_code(changeset) do
-    change(changeset, %{
-      token: :crypto.strong_rand_bytes(18) |> Base.url_encode64() |> binary_part(0, 18)
-    })
+    if is_nil(get_field(changeset, :inv_id)) do
+      change(changeset, %{
+        inv_id: :crypto.strong_rand_bytes(18) |> Base.url_encode64() |> binary_part(0, 18)
+      })
+    else
+      changeset
+    end
   end
 end

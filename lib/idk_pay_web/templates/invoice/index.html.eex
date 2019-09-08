@@ -29,7 +29,7 @@
                 <div class="heading-elements">
                     <ul class="list-inline mb-0">
                         <li>
-                          <%= link "New Invoice", to: invoice_path(@conn, :new), class: "btn btn-glow btn-round btn-bg-gradient-x-red-pink" %>
+                        <a href="<%= invoice_path(@conn, :new) %>"><button type="button" class="btn btn-glow btn-round btn-bg-gradient-x-red-pink">New Invoice</button></a>
                         </li>
                     </ul>
                 </div>
@@ -41,9 +41,7 @@
                             <table class="table">
                                 <thead class="bg-primary white">
                                 <tr>
-                                  <th>ID</th>
-                                  <th>Token</th>
-                                  <th>ETH Address</th>                                  
+                                  <th>Invoice ID</th>                              
                                   <th>User ID</th>                                  
                                   <th>Amount</th>
                                   <th>Payment status</th>
@@ -56,9 +54,7 @@
                                 <tbody>
                                   <%= for invoice <- @invoices do %>
                                       <tr>
-                                        <td><%= invoice.id %></td>
-                                        <td><%= invoice.token %></td>
-                                        <td><%= invoice.eth_address %></td>                                        
+                                        <td><%= invoice.inv_id %></td>                               
                                         <td><%= invoice.user_id %></td>
                                         <td><%= invoice.amount %></td>                                        
                                         <td><%= invoice.payment_status %></td>

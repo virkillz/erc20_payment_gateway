@@ -7,6 +7,8 @@ defmodule IdkPay.Transaction do
   alias IdkPay.Repo
 
   alias IdkPay.Transaction.Invoice
+  alias IdkPay.Ethereum
+  alias Ecto.Multi
 
   @doc """
   Returns the list of invoices.
@@ -68,9 +70,26 @@ defmodule IdkPay.Transaction do
 
   """
   def create_invoice(attrs \\ %{}) do
-    %Invoice{}
-    |> Invoice.changeset(attrs)
-    |> Repo.insert()
+    Multi.new()
+    |> Multi.run(:invoice, fn _, _ ->
+      case Ethereum.get_unused_address() |> IO.inspect() do
+        {:ok, addr} ->
+          new_attrs = Map.put(attrs, "eth_address", addr) |> IO.inspect()
+
+          %Invoice{}
+          |> Invoice.changeset(new_attrs)
+          |> Repo.insert()
+
+        {:error, _reason} ->
+          {:error, "No available ethereum address to be assigned."}
+      end
+    end)
+    |> Multi.run(:eth_address, fn _repo, %{invoice: invoice} ->
+      address = Ethereum.get_address_by(:eth_address, invoice.eth_address)
+
+      Ethereum.update_address(address, %{is_used: true, invoice_id: invoice.id})
+    end)
+    |> Repo.transaction()
   end
 
   @doc """
