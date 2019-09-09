@@ -30,6 +30,11 @@ defmodule IdkPayWeb.PageController do
     end
   end
 
+  def dashboard_playground(conn, _params) do
+    conn
+    |> render("dashboard.html")
+  end
+
   def integration(conn, _params) do
     conn
     |> render("integration.html", layout: {IdkPayWeb.LayoutView, "fe.html"})

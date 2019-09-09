@@ -111,8 +111,6 @@ defmodule IdkPay.Account do
   defp check_password(nil, _), do: {:error, "Incorrect credential"}
 
   defp check_password(user, plain_text_password) do
-    IO.inspect(plain_text_password)
-
     case Bcrypt.checkpw(plain_text_password, user.password_hash) do
       true -> {:ok, user}
       false -> {:error, "Incorrect credential"}
@@ -179,6 +177,19 @@ defmodule IdkPay.Account do
   """
   def list_credentials do
     Repo.all(Credential)
+  end
+
+  @doc """
+  Returns the list of user with role "user".
+
+  """
+  def list_credentials_by(:user_id, user_id) do
+    query =
+      from(c in Credential,
+        where: c.user_id == ^user_id
+      )
+
+    Repo.all(query)
   end
 
   @doc """

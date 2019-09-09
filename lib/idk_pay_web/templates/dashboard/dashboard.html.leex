@@ -24,7 +24,7 @@
                                             <a href="#" phx-click="switch_tab" phx-value-tab="change_password">Password</a>
                                         </li>
                                         <li>
-                                            <a href="#" phx-click="switch_tab" phx-value-tab="delete_account">Delete Account</a>
+                                            <a href="/signout" >Logout</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -223,7 +223,7 @@
                                             <%= for credential <- @credentials do %>
                                                 <td><span class="btn color--white btn--sm <%= if credential.network == "Mainnet", do: "btn--primary", else: "btn--primary-1" %>"><%= credential.network %></span></td>
                                                 <td><%= credential.eth_address %></td>
-                                                <td class="pull-right"><button class="btn px-4">Detail</button></td>
+                                                <td class="pull-right"><button class="btn px-4" phx-click="switch_tab" phx-value-tab="credential_detail" phx-value-credential-id="<%= credential.id %>">Detail</button></td>
                                             </tr>
                                             <% end %>
                                         </tbody>
@@ -234,6 +234,48 @@
                                 </div>
 
                                 <!--/my-credentials-->
+
+                                <!--detail-credential-->
+
+                                <div class="account-tab <%= if @active_tab != "credential_detail", do: "hidden" %>">
+                                    <h4>Profile</h4>
+                                    
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label>Network:</label>
+                                                <p><%= @credential_detail.network %></p>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label>ETH Address:</label>
+                                                <p><%= @credential_detail.eth_address %></p>
+                                            </div>                                            
+                                            <div class="col-md-12">
+                                                <strong><label>Public Key:</label></strong>
+                                                <p><%= @credential_detail.public_key %></p>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <strong><label>Secret key:</label></strong>
+                                                <p><%= @credential_detail.secret_key %></p>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <strong><label>Hook URL:</label></strong>
+                                                <p><%= @credential_detail.webhook_url %></p>
+                                            </div> 
+                                            <div class="col-md-12">
+                                                <strong><label>Default Success URL:</label></strong>
+                                                <p><%= @credential_detail.success_url_redirect %></p>
+                                            </div>    
+                                            <hr>                                                                                    
+                                            <div class="col-md-6">
+                                                <button phx-click="switch_tab" phx-value-tab="my_credential" class="px-4 btn btn--secondary type--uppercase">Back</button>                                              
+                                            </div>
+                                            <div class="col-md-6">
+                                                <button class="btn btn--primary px-4 type--uppercase" phx-click="delete_credential" phx-value-credential-id="<%= @credential_detail.id %>">Delete Credentials</button>                                                
+                                            </div>                                            
+                                        </div>
+                                  
+                                </div>   
+                                <!--/detail-credential-->
 
                                 <!--change-password-->
 
@@ -262,16 +304,6 @@
                                 </div>
 
                                  <!--/change-password-->
-
-                                <!--account-delete-->
-                                <div class="<%= if @active_tab != "delete_account", do: "hidden" %> account-tab">
-                                    <h4>Delete Account</h4>
-                                    <p>Permanently remove your account using the button below. Warning, this action is permanent.</p>
-                                    <form>
-                                        <button type="submit" class="btn bg--error type--uppercase">Delete Account</button>                                     
-                                    </form>
-                                </div>
-                                <!--/account-delete-->
 
                             </div>
                         </div>

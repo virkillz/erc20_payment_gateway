@@ -36,6 +36,44 @@
                                     <h4>Profile</h4>
                                     <form>
                                         <div class="row">
+                                            <div class="col-md-12">
+                                                <label>Network:</label>
+                                                <p>Testnet</p>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label>ETH Address:</label>
+                                                <p>0x96fbe40FD94810EF6E1B1647aB2b19f2D19c31EA</p>
+                                            </div>                                            
+                                            <div class="col-md-12">
+                                                <label>Public Key:</label>
+                                                <p>40FD94810EF6E1B1647aB2b19</p>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label>Secret key:</label>
+                                                <p>6fbe40FD94810EF6E1B1647aB2b19f2D19c31EA</p>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label>Hook URL:</label>
+                                                <p>http://something.com/post.php</p>
+                                            </div> 
+                                            <div class="col-md-12">
+                                                <label>Default Success URL:</label>
+                                                <p>http://something.com/user</p>
+                                            </div>    
+                                            <hr>                                                                                    
+                                            <div class="col-md-6">
+                                                <button type="submit" class="btn btn--secondary type--uppercase">Back</button>                                              
+                                            </div>
+                                            <div class="col-md-6">
+                                                <button type="submit" class="btn btn--primary type--uppercase">Delete Credentials</button>                                                
+                                            </div>                                            
+                                        </div>
+                                    </form>
+                                </div>                            
+                                <div id="account-profile-x" class="account-tab hidden">
+                                    <h4>Profile</h4>
+                                    <form>
+                                        <div class="row">
                                             <div class="col-md-6">
                                                 <label>Real Name:</label>
                                                 <input type="text" name="name" value="Lucas Banks">

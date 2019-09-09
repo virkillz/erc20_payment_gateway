@@ -49,7 +49,7 @@ defmodule IdkPayWeb.Router do
 
     live("/dashboard", DashboardLive, session: [:current_user_id])
     get("/payment/:id", PageController, :payment)
-    # live("payment/:id", PaymentLive)
+    get("/dashboard_playground/", PageController, :dashboard_playground)
 
     get("/", PageController, :index)
     get("/login", PageController, :login)
