@@ -48,8 +48,8 @@ defmodule IdkPayWeb.Router do
     pipe_through(:browser)
 
     live("/dashboard", DashboardLive, session: [:current_user_id])
-    # get("/payment/:id", PageController, :payment)
-    # live("payment/:id")
+    get("/payment/:id", PageController, :payment)
+    # live("payment/:id", PaymentLive)
 
     get("/", PageController, :index)
     get("/login", PageController, :login)

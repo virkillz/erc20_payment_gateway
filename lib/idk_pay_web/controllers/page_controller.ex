@@ -3,6 +3,7 @@ defmodule IdkPayWeb.PageController do
 
   alias IdkPay.Account
   alias IdkPay.Account.User
+  alias IdkPay.Transaction
 
   def index(conn, _params) do
     conn
@@ -14,9 +15,19 @@ defmodule IdkPayWeb.PageController do
     |> render("dashboard.html", layout: {IdkPayWeb.LayoutView, "fe.html"})
   end
 
-  def payment(conn, _params) do
-    conn
-    |> render("payment.html", layout: {IdkPayWeb.LayoutView, "blank.html"})
+  def payment(conn, %{"id" => inv_id}) do
+    case Transaction.get_invoice_by(:inv_id, inv_id) do
+      nil ->
+        conn
+        |> render("payment.html", layout: {IdkPayWeb.LayoutView, "blank.html"})
+
+      invoice ->
+        conn
+        |> put_layout({IdkPayWeb.LayoutView, "blank.html"})
+        |> Phoenix.LiveView.Controller.live_render(IdkPayWeb.PaymentLive,
+          session: %{path_params: %{invoice: invoice}}
+        )
+    end
   end
 
   def integration(conn, _params) do

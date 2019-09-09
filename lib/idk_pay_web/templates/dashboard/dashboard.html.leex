@@ -5,8 +5,8 @@
                             <div class="boxed boxed--lg boxed--border">
                                 <div class="text-block text-center">
                                     <img alt="avatar" src="/img/default-avatar.png" class="image--sm">
-                                    <span class="h5"><%= @user.fullname %></span>
-                                    <span><%= @user.business_name %></span>
+                                    <span class="h5"><%= @user.username %></span>
+                                    <span><%= @user.email %></span>
                                 </div>
                                 <hr>
                                 <div class="text-block">
@@ -61,14 +61,6 @@
                                                 <%= error_tag f, :business_name %>   
                                             </div>
                                             <div class="col-md-12">
-                                                <label>Username:</label>
-                                                <%= text_input f, :username, [disabled: true] %>
-                                            </div>                                            
-                                            <div class="col-md-12">
-                                                <label>Email Address:</label>
-                                                <%= text_input f, :email, [disabled: true] %>
-                                            </div>
-                                            <div class="col-md-12">
                                                 <label>Location:</label>
                                                 <%= text_input f, :location %>
                                                 <%= error_tag f, :location %> 
@@ -80,15 +72,9 @@
                                             </div>
                                             <div class="col-md-12">
                                                 <label>Business Description:</label>
-                                                <textarea rows="4" name="bio"><%= @user.bio %></textarea>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="input-checkbox input-checkbox--switch">
-                                                    <input type="checkbox" name="public-profile" id="input-assigned-0">
-                                                    <label for="input-assigned-0"></label>
-                                                </div>
-                                                <span>Subscribe my email to IDKPay newsletter</span>
-                                            </div>
+                                                <%= textarea f, :bio, [rows: 4] %>
+                                                <%= error_tag f, :bio %>                                                 
+                                            </div>                                            
                                             <div class="col-lg-3 col-md-4">
                                                 <button type="submit" class="btn btn--primary type--uppercase" phx-disable-with="Saving...">Save Profile</button>
                                             </div>
@@ -180,23 +166,23 @@
                                     <p> </p>
                                     <form>
 
-                                    <table class="border--round bg--secondary">
+                                    <table class="border--round table--alternate-row">
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Nonce</th>
                                                 <th>Amount</th>
-                                                <th>Payment status</th>
+                                                <th>Payment Status</th>
+                                                <th>Invoice Status</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                             <%= for invoice <- @invoices do %>
-                                                <td><%= invoice.id %></td>
-                                                <td><%= invoice.token %></td>
-                                                <td><%= invoice.token %></td>
-                                                <td><%= invoice.token %></td>                                                                                                
+                                                <td><%= invoice.inv_id %></td>
+                                                <td><%= invoice.amount %></td>
+                                                <td><%= invoice.payment_status %></td>
+                                                <td><%= invoice.invoice_status %></td>                                                                                                
                                                 <td class="pull-right"><button class="btn px-4">Detail</button></td>
                                             </tr>
                                             <% end %>

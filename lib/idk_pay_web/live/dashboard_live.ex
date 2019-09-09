@@ -12,7 +12,7 @@ defmodule IdkPayWeb.DashboardLive do
   def mount(%{current_user_id: user_id}, socket) do
     user = Account.get_user!(user_id)
 
-    invoices = Transaction.list_invoices_by(:user_id, user.id) |> IO.inspect()
+    invoices = Transaction.list_invoices_by(:user_id, user.id)
 
     active_tab =
       if is_nil(user.business_name) do

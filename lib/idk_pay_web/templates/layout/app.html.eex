@@ -101,7 +101,7 @@
             </div>
         </div>
         <div class="main-container"> 
-
+              
         <%= render @view_module, @view_template, assigns %>                     
 
             <footer class="text-center-xs space--xs">

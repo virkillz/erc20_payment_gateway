@@ -8,7 +8,6 @@ defmodule IdkPay.Transaction.Invoice do
     field(:payment_status, :string)
     field(:purpose, :string)
     field(:token, :string)
-    field(:user_id, :id)
     field(:eth_address, :string)
     field(:is_settled, :boolean)
     field(:settlement_fee, :integer)
@@ -20,6 +19,8 @@ defmodule IdkPay.Transaction.Invoice do
     field(:request_id, :string)
 
     timestamps()
+
+    belongs_to(:user, IdkPay.Account.User)
   end
 
   @doc false

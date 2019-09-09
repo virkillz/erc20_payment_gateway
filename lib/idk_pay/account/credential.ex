@@ -10,9 +10,10 @@ defmodule IdkPay.Account.Credential do
     field(:secret_key, :string)
     field(:success_url_redirect, :string)
     field(:webhook_url, :string)
-    field(:user_id, :id)
 
     timestamps()
+
+    belongs_to(:user, IdkPay.Account.User)
   end
 
   @doc false
