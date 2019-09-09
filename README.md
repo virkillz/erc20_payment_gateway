@@ -2,16 +2,9 @@
 
 IDKPay is a ERC20 payment gateway configured for IDK. Goal: To be used by other ERC20 by changing 1 line in config.
 
-
 ## TODO
-  [ ] make the payment page dynamic, live view.
-  [ ] credential detail
   [ ] invoice detail
-  [ ] payment page
   [ ] wire up change password
-  [ ] wire up delete account
-
-
 
 
 ## To start:
@@ -31,22 +24,4 @@ You can register as a regular user.
 You can visit [`localhost:4000/admin`](http://localhost:4000/admin) and login using username 'administrator' and passsword 'administrator'
 
 
-## Use IdkPay Generator instead of phoenix!
-You probably familiar using `phx.gen.html` like this:
-
-`mix phx.gen.html Content Post post title:string content:string is_published:boolean`
-
-Instead, you better use:
-
-`mix idk_pay.gen.html Content Post post title:string content:string is_published:boolean`
-
-The later one will give nicer html output.
-
-Put `resources "/post", PostController` in the router `/lib/Yourapp_web/router.ex`
-
-Run migration `mix ecto.migrate`
-
-Add link to your menu at '/lib/Yourapp_web/templates/layout/app.html.eex'
-
-Bam it's done!
-
+![Payment Page example](/screenshot/payment.png)
